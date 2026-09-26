@@ -1,0 +1,134 @@
+@extends('admin')
+
+@section('content')
+
+<div class="container-fluid pt-5 px-4">
+
+    {{-- Header --}}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="mb-1">Data Ekstrakurikuler</h3>
+            <p class="text-muted mb-0">
+                Daftar ekstrakurikuler sekolah
+            </p>
+        </div>
+
+        <a href="{{ route('admin.ekskul.create') }}" class="btn btn-primary">
+            <i class="bi bi-plus-square"></i>
+            Tambah Ekstrakurikuler
+        </a>
+    </div>
+
+    {{-- Pesan sukses --}}
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    {{-- Tabel --}}
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Gambar</th>
+                    <th>Nama Ekskul</th>
+                    <th>Pembina</th>
+                    <th>Jadwal Latihan</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @forelse($ekstras as $ekstra)
+
+                    <tr>
+
+                        <td>
+                            {{ $loop->iteration }}
+                        </td>
+
+                        <td>
+                            @if($ekstra->gambar)
+                                <img src="{{ asset('uploads/ekstrakurikuler/' . $ekstra->gambar) }}"
+                                     width="70"
+                                     height="50"
+                                     style="object-fit: cover; border-radius: 6px;">
+                            @else
+                                <span class="text-muted">
+                                    Tidak ada
+                                </span>
+                            @endif
+                        </td>
+
+                        <td>
+                            {{ $ekstra->nama_ekskul }}
+                        </td>
+
+                        <td>
+                            {{ $ekstra->pembina }}
+                        </td>
+
+                        <td>
+                            {{ $ekstra->jadwal_latihan }}
+                        </td>
+
+                        <td>
+                            {{ Str::limit($ekstra->deskripsi, 50) }}
+                        </td>
+
+                        <td>
+
+                            <a href="{{ route('admin.ekskul.edit', $ekstra->id_ekstrakurikuler) }}"
+                               class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+
+                            <form action="{{ route('admin.ekskul.destroy', $ekstra->id_ekstrakurikuler) }}"
+                                  method="POST"
+                                  class="d-inline">
+
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit"
+                                        class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Yakin ingin menghapus data ini?')">
+
+                                    <i class="bi bi-trash"></i>
+                                    Hapus
+
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                @empty
+
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">
+                            Belum ada data ekstrakurikuler.
+                        </td>
+                    </tr>
+
+                @endforelse
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+@endsection

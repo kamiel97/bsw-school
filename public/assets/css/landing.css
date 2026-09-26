@@ -1,0 +1,386 @@
+
+/* ==============================
+   LANDING PAGE
+================================ */
+
+:root {
+    --landing-primary: #2563eb;
+    --landing-primary-dark: #1d4ed8;
+    --landing-secondary: #0f172a;
+    --landing-text: #1e293b;
+    --landing-muted: #64748b;
+    --landing-bg: #f8fafc;
+    --landing-white: #ffffff;
+    --landing-border: #e2e8f0;
+}
+
+
+/* ==============================
+   GENERAL
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: var(--landing-bg);
+    color: var(--landing-text);
+}
+
+
+/* ==============================
+   NAVBAR
+================================ */
+
+.navbar-custom {
+    background: var(--landing-white);
+    border-bottom: 1px solid var(--landing-border);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: var(--landing-secondary) !important;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.navbar-brand i {
+    color: var(--landing-primary);
+    margin-right: 8px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--landing-text) !important;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--landing-primary) !important;
+}
+
+.btn-login {
+    background: var(--landing-primary);
+    color: white !important;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-weight: 600;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: var(--landing-primary-dark);
+    color: white !important;
+}
+
+
+/* ==============================
+   HERO
+================================ */
+
+.hero {
+    min-height: 620px;
+    background: linear-gradient(
+        135deg,
+        #eff6ff 0%,
+        #ffffff 60%,
+        #dbeafe 100%
+    );
+
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.hero p:first-child {
+    color: var(--landing-primary);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    color: var(--landing-secondary);
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--landing-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.hero-logo {
+    max-width: 280px;
+    max-height: 280px;
+    object-fit: contain;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: var(--landing-primary);
+    color: white;
+
+    padding: 12px 24px;
+    margin-top: 15px;
+
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    background: var(--landing-primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   SECTION
+================================ */
+
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--landing-secondary);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--landing-muted);
+}
+
+
+/* ==============================
+   PROFIL
+================================ */
+
+.profile-card {
+    background: var(--landing-white);
+    border: 1px solid var(--landing-border);
+    border-radius: 16px;
+    padding: 35px;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.profile-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile-card h3 {
+    color: var(--landing-secondary);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.profile-card p {
+    color: var(--landing-muted);
+    line-height: 1.8;
+}
+
+.profile-card strong {
+    color: var(--landing-text);
+    font-size: 14px;
+}
+
+.profile-card strong i {
+    color: var(--landing-primary);
+    margin-right: 5px;
+}
+
+
+/* ==============================
+   VISI MISI
+================================ */
+
+.visi-misi {
+    background: #eff6ff;
+}
+
+.visi-misi .section-title h2 {
+    color: var(--landing-secondary);
+}
+
+.visi-card {
+    background: var(--landing-white);
+    border: 1px solid var(--landing-border);
+
+    padding: 35px;
+    border-radius: 16px;
+
+    height: 100%;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+
+    transition: 0.3s;
+}
+
+.visi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.visi-card i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    background: #dbeafe;
+    color: var(--landing-primary);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.visi-card h4 {
+    color: var(--landing-secondary);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.visi-card p {
+    color: var(--landing-muted);
+    line-height: 1.8;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+    background: var(--landing-secondary);
+    color: white;
+    padding: 30px 0;
+}
+
+footer p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        padding-top: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .btn-login {
+        display: inline-block;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-logo {
+        margin-top: 45px;
+        max-width: 210px;
+        max-height: 210px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .hero {
+        min-height: auto;
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-image {
+        height: 250px;
+    }
+
+    .visi-card {
+        padding: 25px;
+    }
+
+}

@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f4f6f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.register-card {
+    width: 500px;
+    padding: 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.register-logo {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 15px;
+
+    background: #4da3ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #0b2f4a;
+    font-size: 32px;
+}
+
+.register-title {
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #0b2f4a;
+
+    margin-bottom: 30px;
+}
+
+.register-label {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-bottom: 7px;
+}
+
+.register-input {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dbe3ea;
+    border-radius: 9px;
+
+    outline: none;
+
+    margin-bottom: 18px;
+}
+
+.register-input:focus {
+    border-color: #4da3ff;
+
+    box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.12);
+}
+
+.register-button {
+    width: 100%;
+    height: 46px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #0b2f4a;
+    color: white;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background: #124466;
+}
+
+.login-link {
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+.login-link a {
+    color: #2676bd;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ============= RESPONSIVE Register =============== */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    .register-card {
+        width: 100%;
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .register-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        border-radius: 13px;
+    }
+
+    .register-title {
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+
+    .register-label {
+        font-size: 12px;
+    }
+
+    .register-input {
+        height: 44px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .register-button {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .login-link {
+        font-size: 12px;
+    }
+}
