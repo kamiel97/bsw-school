@@ -4,12 +4,10 @@
 
 <div class="container-fluid pt-5 px-4">
 
-    <div class="bg-light rounded p-4">
-
         <div class="d-flex justify-content-between align-items-center mb-4">
 
             <div>
-                <h4 class="mb-1">Profil Sekolah</h4>
+                <h3 class="mb-1">Profil Sekolah</h3>
                 <p class="text-muted mb-0">
                     Informasi profil sekolah
                 </p>
@@ -234,7 +232,7 @@
 
         @endif
 
-    </div>
+    
 
 </div>
 

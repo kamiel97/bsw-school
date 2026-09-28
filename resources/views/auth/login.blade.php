@@ -46,14 +46,14 @@
                 </div>
             @endif
 
-            {{-- Email --}}
+            {{-- username --}}
             <div>
                 <label class="login-label">
-                    Email
+                    Usename
                 </label>
 
-                <input type="email" name="email" class="login-input" placeholder="Masukkan email"
-                    value="{{ old('email') }}" required>
+                <input name="username" class="login-input" placeholder="Masukkan username"
+                    value="{{ old('username') }}" required>
             </div>
 
             {{-- Password --}}

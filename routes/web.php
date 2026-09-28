@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
     // ====================
 
     Route::resource('/user', UserController::class)
-    ->names('admin.user');
+        ->names('admin.user');
 
     // ====================
     // CRUD GURU
@@ -69,22 +69,36 @@ Route::middleware('auth')->group(function () {
     // CRUD SISWA
     // ====================
 
-    Route::resource('/data-siswa', SiswaController::class)
-        ->parameters(['data-siswa' => 'siswa'])
+    Route::resource('/siswa', SiswaController::class)
+        ->parameters(['siswa' => 'siswa'])
         ->names('admin.siswa');
+
+    // ====================
+    // CRUD EXTRA
+    // ====================
 
     Route::resource('/ekstra', EkstrakurikulerController::class)
         ->parameters(['ekstra' => 'ekstrakurikuler'])
         ->names('admin.ekskul');
 
-
+    // ====================
+    // CRUD GALERI
+    // ====================
 
     Route::resource('/galeri', GaleriController::class)
         ->names('admin.galeri');
 
+    // ====================
+    // CRUD BERITA
+    // ====================
+
     Route::resource('/berita', BeritaController::class)
         ->parameters(['berita' => 'berita'])
         ->names('admin.berita');
+
+    // ====================
+    // CRUD PENGUMUMAN
+    // ====================
 
     Route::resource('/pengumuman', PengumumanController::class)
         ->parameters(['pengumuman' => 'pengumuman'])

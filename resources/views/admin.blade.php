@@ -47,10 +47,25 @@
              Highly polished, dark-green sticky navigation
              ========================================== -->
 
-    <div class="sidebar-wrapper {{ request()->routeIs('admin.user.create', 'admin.user.edit', 'admin.guru.create',
-    'admin.guru.edit', 'admin.siswa.create', 'admin.siswa.edit', 'admin.ekskul.create','admin.ekskul.edit',
-    'admin.berita.create', 'admin.berita.edit','admin.galeri.create', 'admin.galeri.edit',
-    'admin.pengumuman.create', 'admin.pengumuman.edit','admin.profile.edit') ? 'sidebar-disabled' : '' }}"
+    <div class="sidebar-wrapper {{ request()->routeIs(
+        'admin.user.create',
+        'admin.user.edit',
+        'admin.guru.create',
+        'admin.guru.edit',
+        'admin.siswa.create',
+        'admin.siswa.edit',
+        'admin.ekskul.create',
+        'admin.ekskul.edit',
+        'admin.berita.create',
+        'admin.berita.edit',
+        'admin.galeri.create',
+        'admin.galeri.edit',
+        'admin.pengumuman.create',
+        'admin.pengumuman.edit',
+        'admin.profile.edit',
+    )
+        ? 'sidebar-disabled'
+        : '' }}"
         id="sidebar">
 
         <!-- Brand Logo / Identity -->
@@ -65,61 +80,24 @@
 
 
         <!-- Navigation Menu -->
+        <div class="sidebar-menu-section">
+            <ul class="sidebar-menu-list">
 
-        <ul class="sidebar-menu-list">
-
-            <li class="sidebar-menu-item">
-
-                <a class="sidebar-menu-link {{ request()->is('dashboard') ? 'active' : '' }} " href={{ 'dashboard' }}>
-
-                    <i class="bi bi-grid-fill"></i>
-
-                    <span>Beranda</span>
-
-                </a>
-
-            </li>
-
-        </ul>
-
-        <div class="sidebar-menu-title">
-            Menu
-        </div>
-
-        <ul class="sidebar-menu-list">
-
-            @if (Auth::user()->role === 'Admin')
                 <li class="sidebar-menu-item">
 
-                    <a class="sidebar-menu-link {{ request()->is('user') ? 'active' : '' }} "
-                        href={{ 'user' }}>
+                    <a class="sidebar-menu-link {{ request()->is('dashboard') ? 'active' : '' }} "
+                        href={{ 'dashboard' }}>
 
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-grid-fill"></i>
 
-                        <span>Pengguna</span>
+                        <span>Beranda</span>
 
                     </a>
 
                 </li>
-            @endif
 
-        </ul>
-        <ul class="sidebar-menu-list">
-
-            <li class="sidebar-menu-item">
-
-                <a class="sidebar-menu-link {{ request()->is('profile') ? 'active' : '' }} " href={{ 'profile' }}>
-
-                    <i class="bi bi-info-circle-fill"></i>
-
-                    <span>Profile Sekolah</span>
-
-                </a>
-
-            </li>
-
-        </ul>
-
+            </ul>
+        </div>
         <div class="flex-grow-1 overflow-y-auto">
 
             <!-- Group: Menu -->
@@ -151,8 +129,8 @@
 
                         <li class="sidebar-menu-item">
 
-                            <a class="sidebar-menu-link {{ request()->is('data-siswa') ? 'active' : '' }} "
-                                href={{ 'data-siswa' }}>
+                            <a class="sidebar-menu-link {{ request()->is('siswa') ? 'active' : '' }} "
+                                href={{ 'siswa' }}>
 
                                 <i class="bi bi-people"></i>
 
@@ -211,12 +189,27 @@
 
                             <i class="bi bi-newspaper"></i>
 
-                            <span>Berita & Kegiatan</span>
+                            <span>Berita</span>
 
                         </a>
 
                     </li>
 
+                </ul>
+                <ul class="sidebar-menu-list">
+
+                    <li class="sidebar-menu-item">
+
+                        <a class="sidebar-menu-link {{ request()->is('pengumuman') ? 'active' : '' }} "
+                            href={{ 'pengumuman' }}>
+
+                            <i class="bi bi-bell"></i>
+
+                            <span>Pengumuman</span>
+
+                        </a>
+
+                    </li>
                 </ul>
 
             </div>
@@ -232,25 +225,44 @@
             <div class="sidebar-menu-section">
 
                 <div class="sidebar-menu-title">
-                    Informasi
+                    Lainnya
                 </div>
-
-
                 <ul class="sidebar-menu-list">
 
                     <li class="sidebar-menu-item">
 
-                        <a class="sidebar-menu-link {{ request()->is('pengumuman') ? 'active' : '' }} "
-                            href={{ 'pengumuman' }}>
+                        <a class="sidebar-menu-link {{ request()->is('profile') ? 'active' : '' }} "
+                            href={{ 'profile' }}>
 
-                            <i class="bi bi-newspaper"></i>
+                            <i class="bi bi-info-circle-fill"></i>
 
-                            <span>Pengumuman</span>
+                            <span>Profile Sekolah</span>
 
                         </a>
 
                     </li>
+
                 </ul>
+                <ul class="sidebar-menu-list">
+
+                    @if (Auth::user()->role === 'Admin')
+                        <li class="sidebar-menu-item">
+
+                            <a class="sidebar-menu-link {{ request()->is('user') ? 'active' : '' }} "
+                                href={{ 'user' }}>
+
+                                <i class="bi bi-person"></i>
+
+                                <span>Pengguna</span>
+
+                            </a>
+
+                        </li>
+                    @endif
+
+                </ul>
+
+
             </div>
         </div>
     </div>

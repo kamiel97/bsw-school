@@ -9,6 +9,7 @@
 
                 <div class="bg-light rounded p-4">
 
+                    <div class="d-flex justify-content-between align-items-center mb-4">
                     {{-- Judul --}}
                     <div class="mb-4">
                         <h3 class="mb-1">Edit Data Guru</h3>
@@ -16,6 +17,12 @@
                             Ubah informasi data guru
                         </p>
                     </div>
+                    <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i>
+                        Kembali
+                    </a>
+                    </div>
+
 
                     {{-- Pesan error --}}
                     @if ($errors->any())
@@ -79,8 +86,7 @@
                         <div class="d-flex gap-2">
 
                             <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">
-                                <i class="bi bi-arrow-left"></i>
-                                Kembali
+                                Batal
                             </a>
 
                             <button type="submit" class="btn btn-primary">

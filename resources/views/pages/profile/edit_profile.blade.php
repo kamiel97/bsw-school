@@ -5,13 +5,19 @@
 <div class="container-fluid pt-5 px-4">
 
     <div class="bg-light rounded p-4">
-
+        <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="mb-4">
             <h4 class="mb-1">Edit Profil Sekolah</h4>
             <p class="text-muted mb-0">
                 Ubah informasi profil sekolah
             </p>
         </div>
+         <a href="{{ route('admin.profile') }}"
+                   class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i>
+                    Kembali
+         </a>
+         </div>
 
         <form action="{{ route('admin.profile.update') }}"
               method="POST"
@@ -154,13 +160,6 @@
 
             {{-- Tombol --}}
             <div class="d-flex gap-2">
-
-                <a href="{{ route('admin.profile') }}"
-                   class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i>
-                    Kembali
-                </a>
-
                 <button type="submit"
                         class="btn btn-primary">
                     <i class="bi bi-save"></i>

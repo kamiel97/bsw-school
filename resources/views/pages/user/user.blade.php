@@ -86,8 +86,9 @@
 
                             @else
 
-                                <span class="text-muted">
-                                    -
+                                <span class="badge bg-danger">
+                                    <i class="bi bi-circle-fill"></i>
+                                 Tidak Aktif
                                 </span>
 
                             @endif
@@ -101,7 +102,8 @@
                                    class="btn btn-sm btn-warning">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-
+                                
+                                {{-- cek user yg login --}}
                                 @if($user->id_user != Auth::id())
 
                                     <form action="{{ route('admin.user.destroy', $user->id_user) }}"

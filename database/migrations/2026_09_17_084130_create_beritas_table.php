@@ -20,8 +20,7 @@ return new class extends Migration
             $table->enum('status', ["Publish", "Draft"]);
 
             // Relasi ke tabel users
-            $table->foreignId('id_user')->constrained('users', 'id_user');
-
+            $table->foreignId('id_user')->nullable()->constrained('users', 'id_user')->nullOnDelete();
 
             $table->timestamps();
         });
