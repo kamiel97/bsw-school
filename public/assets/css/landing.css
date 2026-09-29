@@ -384,3 +384,58 @@ footer p {
     }
 
 }
+/* ==============================
+   MOBILE
+================================ */
+.berita{
+    background-color: #eff2fa70;
+}
+
+.card {
+    background: var(--landing-white);
+    border: 1px solid var(--landing-border);
+
+    padding: 35px;
+    border-radius: 16px;
+
+    height: 100%;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.card i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    background: #dbeafe;
+    color: var(--landing-primary);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    color: var(--landing-secondary);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--landing-muted);
+    line-height: 1.8;
+}

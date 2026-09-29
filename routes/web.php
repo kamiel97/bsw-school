@@ -11,6 +11,8 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfilSekolahController;
 use App\Http\Controllers\DashboardController;
+use App\Models\Berita;
+use App\Models\Pengumuman;
 
 
 
@@ -21,8 +23,13 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     $profil = \App\Models\ProfileSekolah::first();
-
-    return view('landing_page', compact('profil'));
+    $berita = Berita::where('status', 'Publish')
+                    ->latest('tanggal')
+                    ->get();
+    $pengumumans = Pengumuman::where('status', 'Publish')
+                    ->latest()
+                    ->get();
+    return view('landing_page', compact('profil','berita','pengumumans'));
 });
 
 // ====================

@@ -156,13 +156,13 @@
 }
 
 .dashboard-card h4 {
-    color: #1971d6;
+    color: #ffffff;
     margin: 0;
     font-weight: 700;
 }
 
 .dashboard-icon {
-    color: #1971d6;
+    color: #ffffff;
     font-size: 42px;
 }
 
