@@ -13,7 +13,7 @@
         </div>
 
         @if(Auth::user()->role === 'Admin')
-            <a href="{{ route('admin.siswa.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.siswa.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i>
                 Tambah Siswa
             </a>
@@ -77,10 +77,9 @@
                         @if(Auth::user()->role === 'Admin')
                             <td>
 
-                                <a href="{{ route('admin.siswa.edit', $siswa->id_siswa) }}"
-                                   class="btn btn-sm btn-warning">
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
+                                <a href="{{ route('admin.siswa.edit',Crypt::encryptString($siswa->id_siswa)) }}"
+                                  class="table-btn-action" title="Ubah-baris">
+                                    <i class="bi bi-pencil"></i>
                                 </a>
 
                                 <form action="{{ route('admin.siswa.destroy', $siswa->id_siswa) }}"
@@ -91,12 +90,11 @@
                                     @method('DELETE')
 
                                     <button type="submit"
-                                            class="btn btn-sm btn-danger"
+                                            class="table-btn-action delete" title="Hapus-baris"
                                             onclick="return confirm('Yakin ingin menghapus data siswa ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                        Hapus
-
+                                    
                                     </button>
 
                                 </form>

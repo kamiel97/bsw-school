@@ -47,7 +47,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
 
 
 // ====================
-// Route Admin
+// Route Admin + midleware
 // ====================
 
 Route::middleware('auth')->group(function () {

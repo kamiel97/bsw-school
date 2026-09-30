@@ -1,4 +1,6 @@
-
+@php
+    use Illuminate\Support\Facades\Crypt;
+@endphp
 @extends('admin')
 
 @section('content')
@@ -14,7 +16,7 @@
         </div>
 
         @if(Auth::user()->role === 'Admin')
-            <a href="{{ route('admin.guru.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.guru.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i> Tambah Guru
             </a>
         @endif
@@ -87,9 +89,9 @@
                             @if(Auth::user()->role === 'Admin')
                                 <td>
 
-                                    <a href="{{ route('admin.guru.edit', $guru->id_guru) }}"
-                                       class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil-square"></i>
+                                    <a href="{{ route('admin.guru.edit', Crypt::encryptString($guru->id_guru)) }}"
+                                       class="table-btn-action" title="Ubah-baris">
+                                        <i class="bi bi-pencil"></i>
                                     </a>
 
                                     <form action="{{ route('admin.guru.destroy', $guru->id_guru) }}"
@@ -101,7 +103,7 @@
                                         @method('DELETE')
 
                                         <button type="submit"
-                                                class="btn btn-sm btn-danger">
+                                                class="table-btn-action delete" title="Hapus-baris">
                                             <i class="bi bi-trash"></i>
                                         </button>
 

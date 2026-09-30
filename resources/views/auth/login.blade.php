@@ -71,12 +71,12 @@
             </button>
         </form>
             {{-- Register --}}
-         <div class="register-link">
+         {{-- <div class="register-link">
              Belum punya akun?
             <a href="{{ url('/register') }}">
                 Register
             </a>
-        </div>
+        </div> --}}
 
 
     </div>

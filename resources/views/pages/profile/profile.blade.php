@@ -14,7 +14,7 @@
             </div>
 
             <a href="{{ route('admin.profile.edit') }}"
-               class="btn btn-primary">
+               class="btn-custom btn-custom-primary">
 
                 <i class="bi bi-pencil-square"></i>
                 Edit Profil

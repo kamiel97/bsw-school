@@ -16,7 +16,7 @@
                             Tambahkan data guru baru
                         </p>
                     </div>
-                     <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">
+                     <a href="{{ route('admin.guru.index') }}" class="btn-custom btn-custom-light">
                                 <i class="bi bi-arrow-left"></i>
                                 Kembali
                      </a>
@@ -70,11 +70,7 @@
 
                         <div class="d-flex gap-2">
 
-                             <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">
-                                Batal
-                            </a>
-
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn-custom btn-custom-primary">
                                 <i class="bi bi-save"></i>
                                 Simpan
                             </button>

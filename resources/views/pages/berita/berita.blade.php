@@ -14,7 +14,7 @@
             </div>
 
             <a href="{{ route('admin.berita.create') }}"
-               class="btn btn-primary">
+               class="btn-custom btn-custom-primary">
 
                 <i class="bi bi-plus-square"></i>
                 Tambah Berita
@@ -134,11 +134,11 @@
 
                                 <a
                                     href="{{ route('admin.berita.edit', $berita->id_berita) }}"
-                                    class="btn btn-sm btn-warning"
+                                    class="table-btn-action" title="Ubah-baris"
                                 >
 
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
+                                    <i class="bi bi-pencil"></i>
+                                
 
                                 </a>
 
@@ -154,12 +154,12 @@
 
                                     <button
                                         type="submit"
-                                        class="btn btn-sm btn-danger"
+                                        class="table-btn-action" title="Hapus-baris"
                                         onclick="return confirm('Yakin ingin menghapus berita ini?')"
                                     >
 
                                         <i class="bi bi-trash"></i>
-                                        Hapus
+                                    
 
                                     </button>
 

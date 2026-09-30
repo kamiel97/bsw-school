@@ -15,7 +15,7 @@
                     <p class="text-muted mb-0">Perbarui data siswa</p>
                 </div>
 
-                <a href="{{ route('admin.siswa.index') }}" class="btn btn-secondary">
+                <a href="{{ route('admin.siswa.index') }}" class="btn-custom btn-custom-light">
                     <i class="bi bi-arrow-left"></i>
                     Kembali
                 </a>
@@ -112,12 +112,7 @@
                 {{-- Tombol --}}
                 <div class="d-flex justify-content-end gap-2">
 
-                    <a href="{{ route('admin.siswa.index') }}"
-                       class="btn btn-secondary">
-                        Batal
-                    </a>
-
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn-custom btn-custom-primary">
                         <i class="bi bi-save"></i>
                         Update
                     </button>

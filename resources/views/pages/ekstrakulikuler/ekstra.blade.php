@@ -13,7 +13,7 @@
             </p>
         </div>
 
-        <a href="{{ route('admin.ekskul.create') }}" class="btn btn-primary">
+        <a href="{{ route('admin.ekskul.create') }}" class="btn-custom btn-custom-primary">
             <i class="bi bi-plus-square"></i>
             Tambah Ekstrakurikuler
         </a>
@@ -84,10 +84,9 @@
 
                         <td>
 
-                            <a href="{{ route('admin.ekskul.edit', $ekstra->id_ekstrakurikuler) }}"
-                               class="btn btn-sm btn-warning">
-                                <i class="bi bi-pencil-square"></i>
-                                Edit
+                            <a href="{{ route('admin.ekskul.edit', Crypt::encryptString($ekstra->id_ekstrakurikuler)) }}"
+                               class="table-btn-action" title="Ubah-baris">
+                                <i class="bi bi-pencil"></i>
                             </a>
 
                             <form action="{{ route('admin.ekskul.destroy', $ekstra->id_ekstrakurikuler) }}"
@@ -98,11 +97,10 @@
                                 @method('DELETE')
 
                                 <button type="submit"
-                                        class="btn btn-sm btn-danger"
+                                        class="table-btn-action delete" title="Hapus-baris"
                                         onclick="return confirm('Yakin ingin menghapus data ini?')">
 
                                     <i class="bi bi-trash"></i>
-                                    Hapus
 
                                 </button>
 

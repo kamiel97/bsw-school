@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h5 class="mb-0">Tambah User</h5>
 
-                <a href="{{ route('admin.user.index') }}" class="btn btn-secondary">
+                <a href="{{ route('admin.user.index') }}" class="btn-custom btn-custom-light">
                     <i class="bi bi-arrow-left"></i>
                     Kembali
                 </a>
@@ -44,10 +44,7 @@
                         <option value="Operator">Operator</option>
                     </select>
                 </div>
-                <a href="{{ route('admin.user.index') }}" class="btn btn-secondary">
-                    Batal
-                </a>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn-custom btn-custom-primary">
                     <i class="bi bi-plus-square"></i>
                     Simpan
                 </button>

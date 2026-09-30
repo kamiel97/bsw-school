@@ -336,14 +336,14 @@
                 <!-- Logout -->
 
                 <div>
-                    <a class="dropdown-item text-danger" href={{ 'login' }}>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
 
-                        <i class="bi bi-box-arrow-right"></i>
-
-                        Logout
-
-                    </a>
-
+                        <button type="submit" class="btn-custom btn-custom-danger">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
+                        </button>
+                    </form>
                 </div>
 
 

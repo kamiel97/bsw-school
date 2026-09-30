@@ -14,7 +14,7 @@
             </div>
 
             <a href="{{ route('admin.pengumuman.create') }}"
-               class="btn btn-primary">
+               class="btn-custom btn-custom-primary">
 
                 <i class="bi bi-plus-square"></i>
                 Tambah Pengumuman
@@ -108,10 +108,9 @@
                             <td>
 
                                 <a href="{{ route('admin.pengumuman.edit', $pengumuman->id_pengumuman) }}"
-                                   class="btn btn-sm btn-warning">
+                                   class="table-btn-action" title="Ubah-baris">
 
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
+                                    <i class="bi bi-pencil"></i>
 
                                 </a>
 
@@ -123,11 +122,11 @@
                                     @method('DELETE')
 
                                     <button type="submit"
-                                            class="btn btn-sm btn-danger"
+                                            class="table-btn-action delete" title="Hapus-baris"
                                             onclick="return confirm('Yakin ingin menghapus pengumuman ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                        Hapus
+                                        
 
                                     </button>
 

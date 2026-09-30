@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class SiswaController extends Controller
 {
@@ -49,11 +51,19 @@ class SiswaController extends Controller
             ->with('success', 'Data siswa berhasil ditambahkan.');
     }
 
-    public function edit(Siswa $siswa)
+    public function edit($id)
     {
+        try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.siswa.index');
+        }
+
         if (Auth::user()->role === 'Operator') {
             abort(403);
         }
+
+          $siswa = Siswa::findOrFail($id);
 
         return view('pages/siswa/edit_siswa', compact('siswa'));
     }

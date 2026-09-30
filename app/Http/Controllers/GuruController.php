@@ -6,6 +6,8 @@ use App\Models\Guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class GuruController extends Controller
 {
@@ -30,7 +32,7 @@ class GuruController extends Controller
         if (Auth::user()->role === 'Operator') {
             abort(403);
         }
-        
+
         $request->validate([
             'nama_guru' => 'required|max:40',
             'nip' => 'required|max:15',
@@ -52,12 +54,20 @@ class GuruController extends Controller
             ->with('success', 'Data guru berhasil ditambahkan.');
     }
 
-    public function edit(Guru $guru)
+    public function edit($id)
     {
+        try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.guru.index');
+        }
+
         if (Auth::user()->role === 'Operator') {
             abort(403);
         }
 
+        $guru = Guru::findOrFail($id);
+        
         return view('pages/guru/edit_guru', compact('guru'));
     }
 
@@ -66,7 +76,7 @@ class GuruController extends Controller
         if (Auth::user()->role === 'Operator') {
             abort(403);
         }
-        
+
         $request->validate([
             'nama_guru' => 'required|max:40',
             'nip' => 'required|max:15',

@@ -20,7 +20,7 @@
                     </div>
 
                     <a href="{{ route('admin.berita.index') }}"
-                       class="btn btn-secondary">
+                       class="btn-custom btn-custom-light">
 
                         <i class="bi bi-arrow-left"></i>
                         Kembali
@@ -197,13 +197,8 @@
 
                     <div class="d-flex justify-content-end gap-2">
 
-                        <a href="{{ route('admin.berita.index') }}"
-                           class="btn btn-secondary">
-                            Batal
-                        </a>
-
                         <button type="submit"
-                                class="btn btn-primary">
+                                class="btn-custom btn-custom-primary">
 
                             <i class="bi bi-save"></i>
                             Update

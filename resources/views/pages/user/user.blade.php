@@ -9,9 +9,9 @@
         <h3 class="mb-1">Data User</h3>
 
         @if(Auth::user()->role === 'Admin')
-            <a href="{{ route('admin.user.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.user.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i>
-                Tambah User
+                 Tambah User
             </a>
         @endif
 
@@ -99,7 +99,7 @@
                             <td>
 
                                 <a href="{{ route('admin.user.edit', $user->id_user) }}"
-                                   class="btn btn-sm btn-warning">
+                                   class="table-btn-action" title="Ubah-baris">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 
@@ -114,7 +114,7 @@
                                         @method('DELETE')
 
                                         <button type="submit"
-                                                class="btn btn-sm btn-danger"
+                                                class="table-btn-action delete" title="Hapus-baris"
                                                 onclick="return confirm('Yakin ingin menghapus user ini?')">
 
                                             <i class="bi bi-trash"></i>

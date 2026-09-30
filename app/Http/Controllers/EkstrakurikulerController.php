@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Ekstrakurikuler;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class EkstrakurikulerController extends Controller
 {
@@ -51,9 +53,17 @@ class EkstrakurikulerController extends Controller
             ->with('success', 'Data ekstrakurikuler berhasil ditambahkan.');
     }
 
-    public function edit(Ekstrakurikuler $ekstrakurikuler)
+    public function edit($id)
     {
-        return view('pages.ekstrakulikuler.edit_ekstra', compact('ekstrakurikuler'));
+        try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.ekskul.index');
+        }
+
+         $ekstras = Ekstrakurikuler::findOrFail($id);
+
+        return view('pages.ekstrakulikuler.edit_ekstra', compact('ekstras'));
     }
 
     public function update(Request $request, Ekstrakurikuler $ekstrakurikuler)

@@ -263,6 +263,9 @@
         <div class="container">
             <div class="section-title">
                 <h2>Berita</h2>
+                <p >
+                    Berita Update
+                </p>
             </div>
             <div class="row g-4">
 
@@ -302,6 +305,9 @@
         <div class="container">
             <div class="section-title">
                 <h2>Pengumuman</h2>
+                <p>
+                    informasi & Pemberitahuan
+                </p>
             </div>
             <div class="row g-4">
                 

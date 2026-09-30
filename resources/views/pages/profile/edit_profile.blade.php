@@ -13,7 +13,7 @@
             </p>
         </div>
          <a href="{{ route('admin.profile') }}"
-                   class="btn btn-secondary">
+                   class="btn-custom btn-custom-light">
                     <i class="bi bi-arrow-left"></i>
                     Kembali
          </a>
@@ -161,7 +161,7 @@
             {{-- Tombol --}}
             <div class="d-flex gap-2">
                 <button type="submit"
-                        class="btn btn-primary">
+                        class="btn-custom btn-custom-primary">
                     <i class="bi bi-save"></i>
                     Simpan
                 </button>

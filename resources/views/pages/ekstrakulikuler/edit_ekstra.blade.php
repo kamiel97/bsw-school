@@ -19,7 +19,7 @@
                 </div>
 
                 <a href="{{ route('admin.ekskul.index') }}"
-                   class="btn btn-secondary">
+                   class="btn-custom btn-custom-light">
 
                     <i class="bi bi-arrow-left"></i>
                     Kembali
@@ -28,7 +28,7 @@
 
             </div>
 
-            <form action="{{ route('admin.ekskul.update', $ekstrakurikuler->id_ekstrakurikuler) }}"
+            <form action="{{ route('admin.ekskul.update', $ekstras->id_ekstrakurikuler) }}"
                   method="POST"
                   enctype="multipart/form-data">
 
@@ -45,7 +45,7 @@
                     <input type="text"
                            name="nama_ekskul"
                            class="form-control @error('nama_ekskul') is-invalid @enderror"
-                           value="{{ old('nama_ekskul', $ekstrakurikuler->nama_ekskul) }}"
+                           value="{{ old('nama_ekskul', $ekstras->nama_ekskul) }}"
                            maxlength="40"
                            placeholder="Contoh: Futsal">
 
@@ -67,7 +67,7 @@
                     <input type="text"
                            name="pembina"
                            class="form-control @error('pembina') is-invalid @enderror"
-                           value="{{ old('pembina', $ekstrakurikuler->pembina) }}"
+                           value="{{ old('pembina', $ekstras->pembina) }}"
                            maxlength="40"
                            placeholder="Nama pembina">
 
@@ -89,7 +89,7 @@
                     <input type="text"
                            name="jadwal_latihan"
                            class="form-control @error('jadwal_latihan') is-invalid @enderror"
-                           value="{{ old('jadwal_latihan', $ekstrakurikuler->jadwal_latihan) }}"
+                           value="{{ old('jadwal_latihan', $ekstras->jadwal_latihan) }}"
                            maxlength="40"
                            placeholder="Contoh: Senin & Rabu, 15:00">
 
@@ -111,7 +111,7 @@
                     <textarea name="deskripsi"
                               rows="5"
                               class="form-control @error('deskripsi') is-invalid @enderror"
-                              placeholder="Masukkan deskripsi ekstrakurikuler">{{ old('deskripsi', $ekstrakurikuler->deskripsi) }}</textarea>
+                              placeholder="Masukkan deskripsi ekstrakurikuler">{{ old('deskripsi', $ekstras->deskripsi) }}</textarea>
 
                     @error('deskripsi')
                         <div class="invalid-feedback">
@@ -129,9 +129,9 @@
                     </label>
 
                     <div>
-                        @if($ekstrakurikuler->gambar)
+                        @if($ekstras->gambar)
 
-                            <img src="{{ asset('uploads/ekstrakurikuler/' . $ekstrakurikuler->gambar) }}"
+                            <img src="{{ asset('uploads/ekstrakurikuler/' . $ekstras->gambar) }}"
                                  width="150"
                                  height="100"
                                  style="object-fit: cover; border-radius: 8px;">
@@ -175,15 +175,8 @@
                 {{-- Tombol --}}
                 <div class="d-flex justify-content-end gap-2">
 
-                    <a href="{{ route('admin.ekskul.index') }}"
-                       class="btn btn-secondary">
-
-                        Batal
-
-                    </a>
-
                     <button type="submit"
-                            class="btn btn-primary">
+                            class="btn-custom btn-custom-primary">
 
                         <i class="bi bi-save"></i>
                         Update

@@ -12,7 +12,7 @@
                 </p>
             </div>
 
-            <a href="{{ route('admin.galeri.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.galeri.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i>
                 Tambah Galeri
             </a>
@@ -100,10 +100,9 @@
                             <td>
 
                                 <a href="{{ route('admin.galeri.edit', $galeri->id_galeri) }}"
-                                   class="btn btn-sm btn-warning">
+                                   class="table-btn-action" title="Ubah-baris">
 
-                                    <i class="bi bi-pencil-square"></i>
-                                    Edit
+                                    <i class="bi bi-pencil"></i>
 
                                 </a>
 
@@ -118,12 +117,12 @@
 
                                     <button
                                         type="submit"
-                                        class="btn btn-sm btn-danger"
+                                        class="table-btn-action delete" title="Hapus-baris"
                                         onclick="return confirm('Yakin ingin menghapus data ini?')"
                                     >
 
                                         <i class="bi bi-trash"></i>
-                                        Hapus
+                                    
 
                                     </button>
 
