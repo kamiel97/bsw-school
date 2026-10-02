@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
+
 
 class GaleriController extends Controller
 {
@@ -51,8 +54,16 @@ class GaleriController extends Controller
             ->with('success', 'Data galeri berhasil ditambahkan.');
     }
 
-    public function edit(Galeri $galeri)
+    public function edit($id)
     {
+         try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.galeri.index');
+        }
+
+         $galeri = Galeri::findOrFail($id);
+
         return view('pages.galeri.edit_galeri', compact('galeri'));
     }
 

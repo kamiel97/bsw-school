@@ -1,8 +1,3 @@
-
-/* ==============================
-   LANDING PAGE
-================================ */
-
 :root {
     --landing-primary: #2563eb;
     --landing-primary-dark: #1d4ed8;
@@ -13,11 +8,6 @@
     --landing-white: #ffffff;
     --landing-border: #e2e8f0;
 }
-
-
-/* ==============================
-   GENERAL
-================================ */
 
 * {
     margin: 0;
@@ -36,15 +26,13 @@ body {
 }
 
 
-/* ==============================
-   NAVBAR
-================================ */
+/* Navbar */
 
-.navbar-custom {
-    background: var(--landing-white);
-    border-bottom: 1px solid var(--landing-border);
-    padding: 15px 0;
-}
+    .navbar-custom {
+        background: var(--landing-white);
+        border-bottom: 1px solid var(--landing-border);
+        padding: 15px 0;
+    }
 
 .navbar-brand {
     color: var(--landing-secondary) !important;
@@ -85,9 +73,7 @@ body {
 }
 
 
-/* ==============================
-   HERO
-================================ */
+ /* Hero / hal Utama */
 
 .hero {
     min-height: 620px;
@@ -158,9 +144,7 @@ body {
 }
 
 
-/* ==============================
-   SECTION
-================================ */
+/* Section */
 
 .section {
     padding: 90px 0;
@@ -183,9 +167,7 @@ body {
 }
 
 
-/* ==============================
-   PROFIL
-================================ */
+/* Profile */
 
 .profile-card {
     background: var(--landing-white);
@@ -226,9 +208,7 @@ body {
 }
 
 
-/* ==============================
-   VISI MISI
-================================ */
+/* Visi Misi */
 
 .visi-misi {
     background: #eff6ff;
@@ -288,10 +268,7 @@ body {
 }
 
 
-/* ==============================
-   FOOTER
-================================ */
-
+/* Footer */
 footer {
     background: var(--landing-secondary);
     color: white;
@@ -305,9 +282,7 @@ footer p {
 }
 
 
-/* ==============================
-   MOBILE
-================================ */
+/* Responsip */
 
 @media (max-width: 991px) {
 
@@ -384,11 +359,9 @@ footer p {
     }
 
 }
-/* ==============================
-   MOBILE
-================================ */
+
 .berita{
-    background-color: #eff2fa70;
+   background: #eff6ff;
 }
 
 .card {

@@ -35,7 +35,7 @@
 
 
 
-      <form action="{{ route('login.process') }}" method="POST">  <form action="{{ route('login') }}" method="POST">
+      <form action="{{ route('login.process') }}" method="POST">
             @csrf
 
             {{-- Pesan error login --}}
@@ -49,7 +49,7 @@
             {{-- username --}}
             <div>
                 <label class="login-label">
-                    Usename
+                    Username
                 </label>
 
                 <input name="username" class="login-input" placeholder="Masukkan username"
@@ -70,13 +70,6 @@
                 Login
             </button>
         </form>
-            {{-- Register --}}
-         {{-- <div class="register-link">
-             Belum punya akun?
-            <a href="{{ url('/register') }}">
-                Register
-            </a>
-        </div> --}}
 
 
     </div>

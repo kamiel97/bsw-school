@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use illuminate\Contracts\Encryption\DecryptException;
 
 class BeritaController extends Controller
 {
@@ -59,8 +61,16 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil ditambahkan.');
     }
 
-    public function edit(Berita $berita)
+    public function edit($id)
     {
+         try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.berita.index');
+        }
+
+        $berita = Berita::findOrFail($id);
+
         return view('pages.berita.edit_berita', compact('berita'));
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use illuminate\Contracts\Encryption\DecryptException;
 
 class PengumumanController extends Controller
 {
@@ -44,8 +46,16 @@ class PengumumanController extends Controller
             ->with('success', 'Pengumuman berhasil ditambahkan.');
     }
 
-    public function edit(Pengumuman $pengumuman)
+    public function edit($id)
     {
+        try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.pengumuman.index');
+        }
+
+        $pengumuman = Pengumuman::findOrFail($id);
+
         return view(
             'pages.pengumuman.edit_pengumuman',
             compact('pengumuman')

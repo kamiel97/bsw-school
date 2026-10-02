@@ -6,11 +6,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class UserController extends Controller
 {
     public function index()
     {
+
+        if (Auth::user()->role === 'Operator') {
+            abort(403);
+        }
+
         $users = User::all();
 
         return view('pages/user/user', compact('users'));
@@ -52,11 +59,19 @@ class UserController extends Controller
             ->with('success', 'User berhasil ditambahkan.');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
+        try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('admin.user.index');
+        }
         if (Auth::user()->role === 'Operator') {
             abort(403);
         }
+
+
+        $user = User::findOrFail($id);
 
         return view('pages.user.edit_user', compact('user'));
     }

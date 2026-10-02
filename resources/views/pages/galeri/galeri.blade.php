@@ -99,7 +99,7 @@
 
                             <td>
 
-                                <a href="{{ route('admin.galeri.edit', $galeri->id_galeri) }}"
+                                <a href="{{ route('admin.galeri.edit', Crypt::encryptString($galeri->id_galeri)) }}"
                                    class="table-btn-action" title="Ubah-baris">
 
                                     <i class="bi bi-pencil"></i>

@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Crypt;
+@endphp
 @extends('admin')
 
 @section('content')
@@ -98,7 +101,7 @@
                         @if(Auth::user()->role === 'Admin')
                             <td>
 
-                                <a href="{{ route('admin.user.edit', $user->id_user) }}"
+                                <a href="{{ route('admin.user.edit', Crypt::encryptString($user->id_user)) }}"
                                    class="table-btn-action" title="Ubah-baris">
                                     <i class="bi bi-pencil"></i>
                                 </a>

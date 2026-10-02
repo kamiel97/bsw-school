@@ -1032,7 +1032,7 @@ body.sidebar-minimized .sidebar-menu-link.active::before {
 .login-card,
 .register-card {
     width: 100%;
-    max-width: 450px;
+    max-width: 850px;
 
     padding: 2rem;
 

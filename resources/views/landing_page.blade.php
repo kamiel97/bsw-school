@@ -26,7 +26,7 @@
 
     <!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
 
         <div class="container">
 
@@ -88,7 +88,7 @@
     </nav>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= HERO/UTAMA ================= -->
 
     <section class="hero" id="beranda">
 

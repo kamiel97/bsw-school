@@ -1,3 +1,6 @@
+@php
+     use Illuminate\Support\Facades\Crypt;
+@endphp
 @extends('admin')
 
 @section('content')
@@ -107,7 +110,7 @@
 
                             <td>
 
-                                <a href="{{ route('admin.pengumuman.edit', $pengumuman->id_pengumuman) }}"
+                                <a href="{{ route('admin.pengumuman.edit',Crypt::encryptString ($pengumuman->id_pengumuman)) }}"
                                    class="table-btn-action" title="Ubah-baris">
 
                                     <i class="bi bi-pencil"></i>

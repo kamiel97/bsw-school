@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Crypt;
+@endphp
 @extends('admin')
 
 @section('content')
@@ -133,7 +136,7 @@
                             <td>
 
                                 <a
-                                    href="{{ route('admin.berita.edit', $berita->id_berita) }}"
+                                    href="{{ route('admin.berita.edit', Crypt::encryptString ($berita->id_berita)) }}"
                                     class="table-btn-action" title="Ubah-baris"
                                 >
 

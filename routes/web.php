@@ -23,11 +23,14 @@ use App\Models\Pengumuman;
 
 Route::get('/', function () {
     $profil = \App\Models\ProfileSekolah::first();
+
     $berita = Berita::where('status', 'Publish')
                     ->latest('tanggal')
+                    ->take(3)
                     ->get();
     $pengumumans = Pengumuman::where('status', 'Publish')
-                    ->latest()
+                    ->latest('tanggal')
+                    ->take(3)
                     ->get();
     return view('landing_page', compact('profil','berita','pengumumans'));
 });
