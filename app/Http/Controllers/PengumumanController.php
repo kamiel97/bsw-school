@@ -10,11 +10,17 @@ use illuminate\Contracts\Encryption\DecryptException;
 
 class PengumumanController extends Controller
 {
-    public function index()
+    public function index(Request  $request)
     {
-        $pengumumans = Pengumuman::with('user')->latest()->get();
+        $search = $request->search;
 
-        return view('pages.pengumuman.pengumuman', compact('pengumumans'));
+        $pengumumans = Pengumuman::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+
+        })->latest()->get();
+
+        return view('pages.pengumuman.pengumuman', compact('pengumumans', 'search'));
     }
 
     public function create()

@@ -1,11 +1,10 @@
 @php
-     use Illuminate\Support\Facades\Crypt;
+    use Illuminate\Support\Facades\Crypt;
 @endphp
 @extends('admin')
 
 @section('content')
-
-<div class="container-fluid pt-5 px-4">
+    <div class="container-fluid pt-5 px-4">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -15,23 +14,38 @@
                     Daftar pengumuman sekolah
                 </p>
             </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
 
-            <a href="{{ route('admin.pengumuman.create') }}"
-               class="btn-custom btn-custom-primary">
+            <form action="{{ route('admin.pengumuman.index') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control" style="width: 350px;"
+                    placeholder="Cari Guru">
 
+                <button type="submit" class="btn-custom btn-custom-primary">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('admin.pengumuman.index') }}" class="btn-custom btn-custom-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
+
+            <a href="{{ route('admin.pengumuman.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i>
                 Tambah Pengumuman
-
             </a>
 
         </div>
 
-        @if(session('success'))
 
+
+
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-
         @endif
 
         <div class="table-responsive">
@@ -55,7 +69,6 @@
                 <tbody>
 
                     @forelse($pengumumans as $pengumuman)
-
                         <tr>
 
                             <td>
@@ -72,16 +85,12 @@
 
                             <td>
 
-                                @if($pengumuman->user)
-
+                                @if ($pengumuman->user)
                                     {{ $pengumuman->user->name }}
-
                                 @else
-
                                     <span class="text-muted">
                                         User tidak tersedia
                                     </span>
-
                                 @endif
 
                             </td>
@@ -92,44 +101,38 @@
 
                             <td>
 
-                                @if($pengumuman->status == 'Publish')
-
+                                @if ($pengumuman->status == 'Publish')
                                     <span class="badge bg-success">
                                         Publish
                                     </span>
-
                                 @else
-
                                     <span class="badge bg-secondary">
                                         Draft
                                     </span>
-
                                 @endif
 
                             </td>
 
                             <td>
 
-                                <a href="{{ route('admin.pengumuman.edit',Crypt::encryptString ($pengumuman->id_pengumuman)) }}"
-                                   class="table-btn-action" title="Ubah-baris">
+                                <a href="{{ route('admin.pengumuman.edit', Crypt::encryptString($pengumuman->id_pengumuman)) }}"
+                                    class="table-btn-action" title="Ubah-baris">
 
                                     <i class="bi bi-pencil"></i>
 
                                 </a>
 
                                 <form action="{{ route('admin.pengumuman.destroy', $pengumuman->id_pengumuman) }}"
-                                      method="POST"
-                                      class="d-inline">
+                                    method="POST" class="d-inline">
 
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit"
-                                            class="table-btn-action delete" title="Hapus-baris"
-                                            onclick="return confirm('Yakin ingin menghapus pengumuman ini?')">
+                                    <button type="submit" class="table-btn-action delete" title="Hapus-baris"
+                                        onclick="return confirm('Yakin ingin menghapus pengumuman ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                        
+
 
                                     </button>
 
@@ -143,15 +146,13 @@
 
                         <tr>
 
-                            <td colspan="7"
-                                class="text-center text-muted">
+                            <td colspan="7" class="text-center text-muted">
 
                                 Belum ada pengumuman.
 
                             </td>
 
                         </tr>
-
                     @endforelse
 
                 </tbody>
@@ -160,9 +161,7 @@
 
         </div>
 
-    
 
-</div>
 
+    </div>
 @endsection
-

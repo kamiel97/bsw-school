@@ -54,20 +54,24 @@
 
     {{-- ALL BERITA --}}
     <div class="container mt-5 p-5">
+         <div class="section-title">
+                <h2>Semua Pengumuman</h2>
+                <p>Informasi & Pemberitahuan</p>
+            </div>
         <div class="row g-4">
             @foreach ($pengumumans as $pengumuman)
-                <div class="col-md-4">
-                    <div class="card -100">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{ $pengumuman->judul }}
-                            </h5>
-                            <p class="text-muted">
+                <div class="col-md-6 col-lg-4">
+                    <div class="pengumuman-card h-100">
+                        <div class="pengumuman-icon">
+                            <i class="bi bi-megaphone-fill"></i>
+                        </div>
+                        <div class="pengumuman-content">
+                            <div class="pengumuman-date">
+                                <i class="bi bi-calendar3"></i>
                                 {{ $pengumuman->tanggal }}
-                            </p>
-                            <p class="text-muted">
-                                {{ $pengumuman->isi }}
-                            </p>
+                            </div>
+                            <h3>{{ $pengumuman->judul }}</h3>
+                            <p>{{ $pengumuman->isi }}</p>
                         </div>
                     </div>
                 </div>

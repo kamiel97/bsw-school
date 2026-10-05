@@ -4,8 +4,7 @@
 @extends('admin')
 
 @section('content')
-
-<div class="container-fluid pt-5 px-4">
+    <div class="container-fluid pt-5 px-4">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -15,9 +14,25 @@
                     Daftar berita sekolah
                 </p>
             </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
 
-            <a href="{{ route('admin.berita.create') }}"
-               class="btn-custom btn-custom-primary">
+            <form action="{{ route('admin.berita.index') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control" style="width: 350px;"
+                    placeholder="Cari Galeri">
+
+                <button type="submit" class="btn-custom btn-custom-primary">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('admin.berita.index') }}" class="btn-custom btn-custom-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
+
+            <a href="{{ route('admin.berita.create') }}" class="btn-custom btn-custom-primary">
 
                 <i class="bi bi-plus-square"></i>
                 Tambah Berita
@@ -27,12 +42,13 @@
         </div>
 
 
-        @if(session('success'))
 
+
+
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-
         @endif
 
 
@@ -57,7 +73,6 @@
                 <tbody>
 
                     @forelse($beritas as $berita)
-
                         <tr>
 
                             <td>
@@ -67,21 +82,13 @@
 
                             <td>
 
-                                @if($berita->gambar)
-
-                                    <img
-                                        src="{{ asset('uploads/berita/' . $berita->gambar) }}"
-                                        width="80"
-                                        height="60"
-                                        style="object-fit: cover; border-radius: 6px;"
-                                    >
-
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('uploads/berita/' . $berita->gambar) }}" width="80"
+                                        height="60" style="object-fit: cover; border-radius: 6px;">
                                 @else
-
                                     <span class="text-muted">
                                         Tidak ada
                                     </span>
-
                                 @endif
 
                             </td>
@@ -94,16 +101,12 @@
 
                             <td>
 
-                                @if($berita->user)
-
+                                @if ($berita->user)
                                     {{ $berita->user->name }}
-
                                 @else
-
                                     <span class="text-muted">
                                         User tidak tersedia
                                     </span>
-
                                 @endif
 
                             </td>
@@ -116,18 +119,14 @@
 
                             <td>
 
-                                @if($berita->status == 'Publish')
-
+                                @if ($berita->status == 'Publish')
                                     <span class="badge bg-success">
                                         Publish
                                     </span>
-
                                 @else
-
                                     <span class="badge bg-secondary">
                                         Draft
                                     </span>
-
                                 @endif
 
                             </td>
@@ -135,34 +134,26 @@
 
                             <td>
 
-                                <a
-                                    href="{{ route('admin.berita.edit', Crypt::encryptString ($berita->id_berita)) }}"
-                                    class="table-btn-action" title="Ubah-baris"
-                                >
+                                <a href="{{ route('admin.berita.edit', Crypt::encryptString($berita->id_berita)) }}"
+                                    class="table-btn-action" title="Ubah-baris">
 
                                     <i class="bi bi-pencil"></i>
-                                
+
 
                                 </a>
 
 
-                                <form
-                                    action="{{ route('admin.berita.destroy', $berita->id_berita) }}"
-                                    method="POST"
-                                    class="d-inline"
-                                >
+                                <form action="{{ route('admin.berita.destroy', $berita->id_berita) }}" method="POST"
+                                    class="d-inline">
 
                                     @csrf
                                     @method('DELETE')
 
-                                    <button
-                                        type="submit"
-                                        class="table-btn-action" title="Hapus-baris"
-                                        onclick="return confirm('Yakin ingin menghapus berita ini?')"
-                                    >
+                                    <button type="submit" class="table-btn-action" title="Hapus-baris"
+                                        onclick="return confirm('Yakin ingin menghapus berita ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                    
+
 
                                     </button>
 
@@ -176,16 +167,12 @@
 
                         <tr>
 
-                            <td
-                                colspan="7"
-                                class="text-center text-muted"
-                            >
+                            <td colspan="7" class="text-center text-muted">
                                 Belum ada berita.
 
                             </td>
 
                         </tr>
-
                     @endforelse
 
                 </tbody>
@@ -194,8 +181,7 @@
 
         </div>
 
-    
 
-</div>
 
+    </div>
 @endsection

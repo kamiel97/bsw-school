@@ -3,18 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
-use illuminate\Contracts\Encryption\DecryptException;
 
 class BeritaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::with('user')->latest()->get();
+        $search = $request->search;
 
-        return view('pages.berita.berita', compact('beritas'));
+        $beritas = Berita::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('pages.berita.berita', compact('beritas', 'search'));
+
+        // $beritas = Berita::with('user')->latest()->get();
+
+        // return view('pages.berita.berita', compact('beritas'));
     }
 
     public function create()
@@ -44,7 +53,7 @@ class BeritaController extends Controller
 
             $gambar = $request->file('gambar');
 
-            $namaGambar = time() . '_' . $gambar->getClientOriginalName();
+            $namaGambar = time().'_'.$gambar->getClientOriginalName();
 
             $gambar->move(
                 public_path('uploads/berita'),
@@ -104,7 +113,7 @@ class BeritaController extends Controller
 
             $gambar = $request->file('gambar');
 
-            $namaGambar = time() . '_' . $gambar->getClientOriginalName();
+            $namaGambar = time().'_'.$gambar->getClientOriginalName();
 
             $gambar->move(
                 public_path('uploads/berita'),

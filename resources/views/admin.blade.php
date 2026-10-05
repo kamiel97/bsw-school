@@ -290,7 +290,7 @@
                 <button class="btn-desktop-toggle d-none d-xl-flex align-items-center justify-content-center me-3"
                     id="desktop-sidebar-toggle" aria-label="Minimize Sidebar">
 
-                    <i class="bi bi-chevron-left"></i>
+                    <i class="bi bi-list"></i>
 
                 </button>
 
@@ -324,14 +324,6 @@
             <!-- Right actions -->
 
             <div class="navbar-actions">
-
-
-                {{-- <p class="mt-3">Create New Data</p>
-
-                <button class="navbar-action-btn me-1">
-                    <i class="bi bi-plus"></i>
-                </button> --}}
-
 
                 <!-- Logout -->
 

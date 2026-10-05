@@ -11,6 +11,11 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfilSekolahController;
 use App\Http\Controllers\DashboardController;
+// model
+use App\Models\Guru;
+use App\Models\Siswa;
+use App\Models\Ekstrakurikuler;
+use App\Models\Galeri;
 use App\Models\Berita;
 use App\Models\Pengumuman;
 
@@ -32,7 +37,22 @@ Route::get('/', function () {
         ->latest('tanggal')
         ->take(3)
         ->get();
-    return view('landing_page', compact('profil', 'berita', 'pengumumans'));
+
+     $jumlahsiswa = Siswa::count();
+     $jumlahguru = Guru::count();
+     $jumlahekstra = Ekstrakurikuler::count();
+     $jumlahgaleri = Galeri::count();
+
+    return view('landing_page', compact(
+        'profil',
+        'berita',
+        'pengumumans',
+        'jumlahsiswa',
+        'jumlahguru',
+        'jumlahekstra',
+        'jumlahgaleri'
+    ));
+
 })->name('landing_page');;
 
 
@@ -120,7 +140,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile', [ProfilSekolahController::class, 'update'])->name('admin.profile.update');
 });
 
-//Public 
+//Public
 Route::get('/semua-berita', [BeritaController::class, 'publicIndex'])
     ->name('berita.public');
 Route::get('/semua-pengumuman', [PengumumanController::class, 'publicIndex'])

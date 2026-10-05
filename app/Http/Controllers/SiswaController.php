@@ -10,12 +10,26 @@ use Illuminate\Contracts\Encryption\DecryptException;
 
 class SiswaController extends Controller
 {
-    public function index()
+     public function index(Request $request)
     {
-        $siswas = Siswa::latest()->get();
+        $search = $request->search;
 
-        return view('pages/siswa/data-siswa', compact('siswas'));
+        $siswas = Siswa::when($search, function ($query) use ($search) {
+            $query->where('nama_siswa', 'like', "%{$search}%")
+                ->orWhere('nisn', 'like', "%{$search}%")
+                ->orWhere('jenis_kelamin', 'like', "%{$search}%")
+                ->orWhere('tahun_masuk', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('pages.siswa.data-siswa', compact('siswas', 'search'));
     }
+
+    // public function index()
+    // {
+    //     $siswas = Siswa::latest()->get();
+
+    //     return view('pages/siswa/data-siswa', compact('siswas'));
+    // }
 
     public function create()
     {

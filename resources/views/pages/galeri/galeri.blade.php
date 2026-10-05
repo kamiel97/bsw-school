@@ -1,8 +1,7 @@
 @extends('admin')
 
 @section('content')
-
-<div class="container-fluid pt-5 px-4">
+    <div class="container-fluid pt-5 px-4">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
@@ -11,14 +10,35 @@
                     Daftar foto dan video sekolah
                 </p>
             </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <form action="{{ route('admin.galeri.index') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control" style="width: 350px;"
+                    placeholder="Cari Galeri">
+
+                <button type="submit" class="btn-custom btn-custom-primary">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('admin.galeri.index') }}" class="btn-custom btn-custom-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
 
             <a href="{{ route('admin.galeri.create') }}" class="btn-custom btn-custom-primary">
                 <i class="bi bi-plus-square"></i>
                 Tambah Galeri
             </a>
+
         </div>
 
-        @if(session('success'))
+
+
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
@@ -42,7 +62,6 @@
                 <tbody>
 
                     @forelse($galeris as $galeri)
-
                         <tr>
 
                             <td>
@@ -51,22 +70,14 @@
 
                             <td>
 
-                                @if($galeri->kategori == 'Foto')
-
-                                    <img
-                                        src="{{ asset('uploads/galeri/' . $galeri->file) }}"
-                                        width="80"
-                                        height="60"
-                                        style="object-fit: cover; border-radius: 6px;"
-                                    >
-
+                                @if ($galeri->kategori == 'Foto')
+                                    <img src="{{ asset('uploads/galeri/' . $galeri->file) }}" width="80" height="60"
+                                        style="object-fit: cover; border-radius: 6px;">
                                 @else
-
                                     <span class="badge bg-dark">
                                         <i class="bi bi-camera-video"></i>
                                         Video
                                     </span>
-
                                 @endif
 
                             </td>
@@ -81,7 +92,7 @@
 
                             <td>
 
-                                @if($galeri->kategori == 'Foto')
+                                @if ($galeri->kategori == 'Foto')
                                     <span class="badge bg-primary">
                                         Foto
                                     </span>
@@ -100,29 +111,23 @@
                             <td>
 
                                 <a href="{{ route('admin.galeri.edit', Crypt::encryptString($galeri->id_galeri)) }}"
-                                   class="table-btn-action" title="Ubah-baris">
+                                    class="table-btn-action" title="Ubah-baris">
 
                                     <i class="bi bi-pencil"></i>
 
                                 </a>
 
-                                <form
-                                    action="{{ route('admin.galeri.destroy', $galeri->id_galeri) }}"
-                                    method="POST"
-                                    class="d-inline"
-                                >
+                                <form action="{{ route('admin.galeri.destroy', $galeri->id_galeri) }}" method="POST"
+                                    class="d-inline">
 
                                     @csrf
                                     @method('DELETE')
 
-                                    <button
-                                        type="submit"
-                                        class="table-btn-action delete" title="Hapus-baris"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?')"
-                                    >
+                                    <button type="submit" class="table-btn-action delete" title="Hapus-baris"
+                                        onclick="return confirm('Yakin ingin menghapus data ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                    
+
 
                                     </button>
 
@@ -141,7 +146,6 @@
                             </td>
 
                         </tr>
-
                     @endforelse
 
                 </tbody>
@@ -149,8 +153,7 @@
             </table>
         </div>
 
-    
 
-</div>
 
+    </div>
 @endsection

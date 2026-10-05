@@ -10,11 +10,17 @@ use Illuminate\Contracts\Encryption\DecryptException;
 
 class GaleriController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $galeris = Galeri::latest()->get();
+        $search = $request->search;
 
-        return view('pages.galeri.galeri', compact('galeris'));
+        $galeris = Galeri::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('kategori', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('pages.galeri.galeri', compact('galeris', 'search'));
+
     }
 
     public function create()
@@ -113,4 +119,5 @@ class GaleriController extends Controller
             ->with('success', 'Data galeri berhasil dihapus.');
     }
 }
+
 

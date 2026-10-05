@@ -3,19 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Storage;
 
 class GuruController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $gurus = Guru::all();
+        $search = $request->search;
 
-        return view('pages/guru/data_guru', compact('gurus'));
+        $gurus = Guru::when($search, function ($query) use ($search) {
+            $query->where('nama_guru', 'like', "%{$search}%")
+                ->orWhere('nip', 'like', "%{$search}%")
+                ->orWhere('mapel', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('pages.guru.data_guru', compact('gurus', 'search'));
     }
 
     public function create()
@@ -67,7 +73,7 @@ class GuruController extends Controller
         }
 
         $guru = Guru::findOrFail($id);
-        
+
         return view('pages/guru/edit_guru', compact('guru'));
     }
 

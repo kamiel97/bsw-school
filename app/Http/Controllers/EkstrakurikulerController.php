@@ -9,11 +9,18 @@ use Illuminate\Contracts\Encryption\DecryptException;
 
 class EkstrakurikulerController extends Controller
 {
-    public function index()
-    {
-        $ekstras = Ekstrakurikuler::latest()->get();
 
-        return view('pages.ekstrakulikuler.ekstra', compact('ekstras'));
+     public function index(Request $request)
+    {
+        $search = $request->search;
+
+        $ekstras = Ekstrakurikuler::when($search, function ($query) use ($search) {
+            $query->where('nama_ekskul', 'like', "%{$search}%")
+                ->orWhere('pembina', 'like', "%{$search}%")
+                ->orWhere('jadwal_latihan', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('pages.ekstrakulikuler.ekstra', compact('ekstras', 'search'));
     }
 
     public function create()

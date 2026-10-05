@@ -11,15 +11,34 @@
             <h3 class="mb-1">Data Siswa</h3>
             <p class="text-muted mb-0">Daftar data siswa sekolah</p>
         </div>
-
-        @if(Auth::user()->role === 'Admin')
-            <a href="{{ route('admin.siswa.create') }}" class="btn-custom btn-custom-primary">
-                <i class="bi bi-plus-square"></i>
-                Tambah Siswa
-            </a>
-        @endif
-
     </div>
+
+         <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <form action="{{ route('admin.siswa.index') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control" style="width: 350px;"
+                    placeholder="Cari Siswa">
+
+                <button type="submit" class="btn-custom btn-custom-primary">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('admin.siswa.index') }}" class="btn-custom btn-custom-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
+
+            @if (Auth::user()->role === 'Admin')
+                <a href="{{ route('admin.siswa.create') }}" class="btn-custom btn-custom-primary">
+                    <i class="bi bi-plus-square"></i> Tambah Siswa
+                </a>
+            @endif
+
+        </div>
+
+
 
     {{-- Pesan sukses --}}
     @if(session('success'))
@@ -94,7 +113,7 @@
                                             onclick="return confirm('Yakin ingin menghapus data siswa ini?')">
 
                                         <i class="bi bi-trash"></i>
-                                    
+
                                     </button>
 
                                 </form>
