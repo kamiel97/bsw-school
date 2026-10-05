@@ -61,9 +61,18 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil ditambahkan.');
     }
 
+    public function publicIndex()
+    {
+        $beritas = Berita::where('status', 'Publish')
+            ->latest('tanggal')
+            ->get();
+
+        return view('berita_public', compact('beritas'));
+    }
+
     public function edit($id)
     {
-         try {
+        try {
             $id = Crypt::decryptString($id);
         } catch (DecryptException $e) {
             return redirect()->route('admin.berita.index');

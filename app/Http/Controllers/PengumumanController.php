@@ -46,6 +46,15 @@ class PengumumanController extends Controller
             ->with('success', 'Pengumuman berhasil ditambahkan.');
     }
 
+    public function publicIndex()
+    {
+        $pengumumans = Pengumuman::where('status', 'Publish')
+            ->latest('tanggal')
+            ->get();
+
+        return view('pengumuman_public', compact('pengumumans'));
+    }
+
     public function edit($id)
     {
         try {

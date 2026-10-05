@@ -24,7 +24,7 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+    {{-- Navbar --}}
 
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
 
@@ -62,7 +62,7 @@
                             Berita
                         </a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="#pengumuman">
                             Pengumuman
                         </a>
@@ -72,13 +72,6 @@
                             Visi & Misi
                         </a>
                     </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="btn btn-login">
-                            Login
-                        </a>
-                    </li>
-
                 </ul>
 
             </div>
@@ -88,7 +81,7 @@
     </nav>
 
 
-    <!-- ================= HERO/UTAMA ================= -->
+    {{-- Hero/Utama --}}
 
     <section class="hero" id="beranda">
 
@@ -143,164 +136,214 @@
 
     </section>
 
+    {{-- Akademik --}}
 
-    <!-- ================= PROFIL ================= -->
-
-    <section class="section" id="profil">
-
+    <section class="section akademik" id="akademik">
         <div class="container">
+            <div class="row g-4">
 
-            <div class="section-title">
-
-                <h2>Profil Sekolah</h2>
-
-                <p>
-                    Mengenal lebih dekat sekolah kami
-                </p>
-
-            </div>
-
-            <div class="profile-card">
-
-                <div class="row align-items-center g-5">
-
-                    <div class="col-lg-5">
-
-                        @if ($profil && $profil->foto)
-                            <img src="{{ asset('uploads/profile/' . $profil->foto) }}" class="profile-image"
-                                alt="Foto Sekolah">
-                        @else
-                            <div class="text-center p-5">
-
-                                <i class="bi bi-building" style="font-size: 120px; color: var(--brand-light);">
-                                </i>
-
+                {{-- SISWA --}}
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <span>Total</span>
+                                <h2>90</h2>
                             </div>
-                        @endif
 
-                    </div>
-
-                    <div class="col-lg-7">
-
-                        <h3>
-                            {{ $profil->nama_sekolah ?? 'Nama Sekolah' }}
-                        </h3>
-
-                        <p>
-                            {{ $profil->deskripsi ?? 'Deskripsi sekolah belum tersedia.' }}
-                        </p>
-
-                        @if ($profil)
-                            <div class="row mt-4">
-
-                                <div class="col-md-6 mb-3">
-
-                                    <strong>
-                                        <i class="bi bi-person"></i>
-                                        Kepala Sekolah
-                                    </strong>
-
-                                    <p class="mb-0">
-                                        {{ $profil->kepala_sekolah }}
-                                    </p>
-
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-
-                                    <strong>
-                                        <i class="bi bi-calendar"></i>
-                                        Tahun Berdiri
-                                    </strong>
-
-                                    <p class="mb-0">
-                                        {{ $profil->tahun_berdiri }}
-                                    </p>
-
-                                </div>
-
-                                <div class="col-md-6">
-
-                                    <strong>
-                                        <i class="bi bi-geo-alt"></i>
-                                        Alamat
-                                    </strong>
-
-                                    <p class="mb-0">
-                                        {{ $profil->alamat }}
-                                    </p>
-
-                                </div>
-
-                                <div class="col-md-6">
-
-                                    <strong>
-                                        <i class="bi bi-telephone"></i>
-                                        Kontak
-                                    </strong>
-
-                                    <p class="mb-0">
-                                        {{ $profil->kontak }}
-                                    </p>
-
-                                </div>
-
+                            <div class="stat-icon">
+                                <i class="bi bi-people-fill"></i>
                             </div>
-                        @endif
+                        </div>
 
+                        <div class="stat-bottom">
+                            <h4>Jumlah Siswa</h4>
+                            <small>Siswa terdaftar</small>
+                        </div>
                     </div>
+                </div>
 
+                {{-- GURU --}}
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <span>Total</span>
+                                <h2>12</h2>
+                            </div>
+
+                            <div class="stat-icon">
+                                <i class="bi bi-person-workspace"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-bottom">
+                            <h4>Jumlah Guru</h4>
+
+                            <a href="{{ route('admin.guru.index') }}">
+                                Lihat semua data
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- EKSTRA --}}
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <span>Total</span>
+                                <h2>8</h2>
+                            </div>
+
+                            <div class="stat-icon">
+                                <i class="bi bi-trophy-fill"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-bottom">
+                            <h4>Ekstrakurikuler</h4>
+
+                            <a href="{{ route('admin.ekskul.index') }}">
+                                Lihat semua data
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- GALERI --}}
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <span>Total</span>
+                                <h2>24</h2>
+                            </div>
+
+                            <div class="stat-icon">
+                                <i class="bi bi-images"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-bottom">
+                            <h4>Galeri</h4>
+
+                            <a href="{{ route('admin.galeri.index') }}">
+                                Lihat semua data
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
         </div>
-
     </section>
 
-    <!-- ================= Berita ================= -->
-    <section class="section berita" id="berita">
+    {{-- Profil --}}
+
+
+    <section class="section profile" id="profil">
         <div class="container">
+            <div class="profile-wrapper">
+                <div class="profile-image-box">
+                    @if ($profil && $profil->foto)
+                        <img src="{{ asset('uploads/profile/' . $profil->foto) }}" class="profile-image"
+                            alt="Foto Sekolah">
+                    @else
+                        <div class="profile-placeholder"> <i class="bi bi-building"></i> </div>
+                    @endif
+                </div>
+                <div class="profile-content"> <span class="profile-label"> PROFIL SEKOLAH </span>
+                    <h3> {{ $profil->nama_sekolah ?? 'Nama Sekolah' }} </h3>
+                    <p class="profile-description"> {{ $profil->deskripsi ?? 'Deskripsi sekolah belum tersedia.' }}
+                    </p>
+                    @if ($profil)
+                        <div class="profile-details">
+                            <div class="profile-detail"> <i class="bi bi-person"></i>
+                                <div> <span>Kepala Sekolah</span> <strong> {{ $profil->kepala_sekolah }} </strong>
+                                </div>
+                            </div>
+                            <div class="profile-detail"> <i class="bi bi-calendar3"></i>
+                                <div> <span>Tahun Berdiri</span> <strong> {{ $profil->tahun_berdiri }} </strong> </div>
+                            </div>
+                            <div class="profile-detail"> <i class="bi bi-geo-alt"></i>
+                                <div> <span>Alamat</span> <strong> {{ $profil->alamat }} </strong> </div>
+                            </div>
+                            <div class="profile-detail"> <i class="bi bi-telephone"></i>
+                                <div> <span>Kontak</span> <strong> {{ $profil->kontak }} </strong> </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{-- Berita --}}
+    <section class="section berita" id="berita">
+
+        <div class="container">
+
             <div class="section-title">
                 <h2>Berita</h2>
-                <p >
-                    Berita Update
-                </p>
+                <p>Berita Update</p>
+
+                <a href="{{ route('berita.public') }}" class="btn btn-public">
+                    Lihat Semua
+                </a>
             </div>
+
             <div class="row g-4">
 
-                @foreach ($berita as $item)
+                @foreach ($berita->take(3) as $item)
                     <div class="col-md-4">
-                        <div class="card h-100">
 
-                            @if ($item->gambar)
-                                <img src="{{ asset('uploads/berita/' . $item->gambar) }}" alt="{{ $item->judul }}"
-                                    class="card-img-top" style="height: 220px; object-fit: cover;">
-                            @endif
+                        <div class="berita-card h-100">
 
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {{ $item->judul }}
-                                </h5>
+                            <div class="berita-image">
 
-                                <p class="text-muted">
+                                @if ($item->gambar)
+                                    <img src="{{ asset('uploads/berita/' . $item->gambar) }}"
+                                        alt="{{ $item->judul }}">
+                                @else
+                                    <div class="berita-placeholder">
+                                        <i class="bi bi-newspaper"></i>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <div class="berita-content">
+
+                                <div class="berita-date">
+                                    <i class="bi bi-newspaper"></i>
                                     {{ $item->tanggal }}
-                                </p>
+                                </div>
 
-                                <p class="card-text">
+                                <h3>{{ $item->judul }}</h3>
+
+                                <p>
                                     {{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}
                                 </p>
+
                             </div>
 
                         </div>
+
                     </div>
                 @endforeach
 
             </div>
+
         </div>
+
     </section>
 
-    <!-- ================= Pengumuman ================= -->
+    {{-- Pengumumn --}}
     <section class="section pengumuman" id="pengumuman">
         <div class="container">
             <div class="section-title">
@@ -308,24 +351,40 @@
                 <p>
                     informasi & Pemberitahuan
                 </p>
+                <a href="{{ route('pengumuman.public') }}" class="btn btn-public">
+                    Lihat Semua
+                </a>
             </div>
             <div class="row g-4">
-                
-                @foreach ($pengumumans as $item)
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                        <h4>Pengumuman</h4>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {{ $item->judul }}
-                                </h5>
 
-                                <p class="text-muted">
-                                    {{ $item->isi }}
+                @foreach ($pengumumans->take(3) as $pengumuman)
+                    <div class="col-md-4">
+
+                        <div class="pengumuman-card h-100">
+
+                            <div class="pengumuman-icon">
+                                <i class="bi bi-megaphone-fill"></i>
+                            </div>
+
+                            <div class="pengumuman-content">
+
+                                <div class="pengumuman-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    {{ $pengumuman->tanggal }}
+                                </div>
+
+                                <h3>
+                                    {{ $pengumuman->judul }}
+                                </h3>
+
+                                <p>
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($pengumuman->isi), 150) }}
                                 </p>
+
                             </div>
 
                         </div>
+
                     </div>
                 @endforeach
 
@@ -334,7 +393,7 @@
     </section>
 
 
-    <!-- ================= VISI MISI ================= -->
+    {{-- Visi misi --}}
 
     <section class="section visi-misi" id="visi-misi">
 
@@ -344,7 +403,7 @@
 
                 <h2>Visi & Misi</h2>
 
-                <p class="text-light">
+                <p>
                     Landasan dan tujuan sekolah
                 </p>
 
@@ -354,15 +413,23 @@
 
                 <div class="col-lg-6">
 
-                    <div class="visi-card">
+                    <div class="visi-card h-100">
 
-                        <i class="bi bi-eye"></i>
+                        <div class="visi-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
 
-                        <h4>Visi</h4>
+                        <div class="visi-content">
 
-                        <p>
-                            {{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}
-                        </p>
+                            <span>VISI SEKOLAH</span>
+
+                            <h3>Visi</h3>
+
+                            <p>
+                                {{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -370,15 +437,23 @@
 
                 <div class="col-lg-6">
 
-                    <div class="visi-card">
+                    <div class="visi-card h-100">
 
-                        <i class="bi bi-bullseye"></i>
+                        <div class="visi-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
 
-                        <h4>Tentang Sekolah</h4>
+                        <div class="visi-content">
 
-                        <p>
-                            {{ $profil->deskripsi ?? 'Informasi sekolah belum tersedia.' }}
-                        </p>
+                            <span>TENTANG SEKOLAH</span>
+
+                            <h3>Tentang Sekolah</h3>
+
+                            <p>
+                                {{ $profil->deskripsi ?? 'Informasi sekolah belum tersedia.' }}
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -391,7 +466,7 @@
     </section>
 
 
-    <!-- ================= FOOTER ================= -->
+    {{-- Footer --}}
 
     <footer>
 

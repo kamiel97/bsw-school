@@ -17,27 +17,27 @@ use App\Models\Pengumuman;
 
 
 
-// ====================
+
 // Route Awal
-// ====================
+
 
 Route::get('/', function () {
     $profil = \App\Models\ProfileSekolah::first();
 
     $berita = Berita::where('status', 'Publish')
-                    ->latest('tanggal')
-                    ->take(3)
-                    ->get();
+        ->latest('tanggal')
+        ->take(3)
+        ->get();
     $pengumumans = Pengumuman::where('status', 'Publish')
-                    ->latest('tanggal')
-                    ->take(3)
-                    ->get();
-    return view('landing_page', compact('profil','berita','pengumumans'));
-});
+        ->latest('tanggal')
+        ->take(3)
+        ->get();
+    return view('landing_page', compact('profil', 'berita', 'pengumumans'));
+})->name('landing_page');;
 
-// ====================
+
 // Route Login
-// ====================
+
 
 Route::get('/login', [AuthController::class, 'showLogin'])
     ->name('login');
@@ -49,9 +49,9 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 
 
-// ====================
+
 // Route Admin + midleware
-// ====================
+
 
 Route::middleware('auth')->group(function () {
 
@@ -61,54 +61,54 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('admin.dashboard');
 
-    // ====================
+
     // CRUD USER
-    // ====================
+
 
     Route::resource('/user', UserController::class)
         ->names('admin.user');
 
-    // ====================
+
     // CRUD GURU
-    // ====================
+
 
     Route::resource('/guru', GuruController::class)
         ->names('admin.guru');
 
-    // ====================
+
     // CRUD SISWA
-    // ====================
+
 
     Route::resource('/siswa', SiswaController::class)
         ->parameters(['siswa' => 'siswa'])
         ->names('admin.siswa');
 
-    // ====================
+
     // CRUD EXTRA
-    // ====================
+
 
     Route::resource('/ekstra', EkstrakurikulerController::class)
         ->parameters(['ekstra' => 'ekstrakurikuler'])
         ->names('admin.ekskul');
 
-    // ====================
+
     // CRUD GALERI
-    // ====================
+
 
     Route::resource('/galeri', GaleriController::class)
         ->names('admin.galeri');
 
-    // ====================
+
     // CRUD BERITA
-    // ====================
+
 
     Route::resource('/berita', BeritaController::class)
         ->parameters(['berita' => 'berita'])
         ->names('admin.berita');
 
-    // ====================
+
     // CRUD PENGUMUMAN
-    // ====================
+
 
     Route::resource('/pengumuman', PengumumanController::class)
         ->parameters(['pengumuman' => 'pengumuman'])
@@ -119,3 +119,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfilSekolahController::class, 'edit'])->name('admin.profile.edit');
     Route::put('/profile', [ProfilSekolahController::class, 'update'])->name('admin.profile.update');
 });
+
+//Public 
+Route::get('/semua-berita', [BeritaController::class, 'publicIndex'])
+    ->name('berita.public');
+Route::get('/semua-pengumuman', [PengumumanController::class, 'publicIndex'])
+    ->name('pengumuman.public');
