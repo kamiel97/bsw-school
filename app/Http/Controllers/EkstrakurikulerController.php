@@ -105,6 +105,13 @@ class EkstrakurikulerController extends Controller
             ->with('success', 'Data ekstrakurikuler berhasil diperbarui.');
     }
 
+    public function publicIndex(){
+
+     $ekstras = Ekstrakurikuler::all();
+
+      return view('ekstra_public', compact('ekstras'));
+    }
+
     public function destroy(Ekstrakurikuler $ekstrakurikuler)
     {
         $ekstrakurikuler->delete();

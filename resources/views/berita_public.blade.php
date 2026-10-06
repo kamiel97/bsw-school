@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="/">
                 <i class="bi bi-book-half"></i>
 
-            SEMUA BERITA
+                BERITA
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -54,28 +54,32 @@
 
     {{-- ALL BERITA --}}
     <div class="container mt-5 p-5">
+        <div class="section-title">
+            <h2>Berita</h2>
+            <p>Berita Update</p>
+        </div>
         <div class="row g-4">
-            @foreach ($beritas as $berita)
-                <div class="col-md-4">
-                    <div class="card -100">
-                        @if ($berita->gambar)
-                                <img src="{{ asset('uploads/berita/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
-                                    class="card-img-top" style="height: 220px; object-fit: cover;">
+            @foreach ($beritas as $item)
+                <div class="col-md-6 col-lg-4">
+                    <div class="berita-card h-100">
+                        <div class="berita-image">
+                            @if ($item->gambar)
+                                <img src="{{ asset('uploads/berita/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                            @else
+                                <div class="berita-placeholder">
+                                    <i class="bi bi-newspaper"></i>
+                                </div>
                             @endif
+                        </div>
 
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {{ $berita->judul }}
-                                </h5>
-
-                                <p class="text-muted">
-                                    {{ $berita->tanggal }}
-                                </p>
-
-                                <p class="card-text">
-                                    {{ \Illuminate\Support\Str::limit(strip_tags($berita->isi), 120) }}
-                                </p>
+                        <div class="berita-content">
+                            <div class="berita-date">
+                                <i class="bi bi-newspaper"></i>
+                                {{ $item->tanggal }}
                             </div>
+                            <h3>{{ $item->judul }}</h3>
+                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p>
+                        </div>
                     </div>
                 </div>
             @endforeach

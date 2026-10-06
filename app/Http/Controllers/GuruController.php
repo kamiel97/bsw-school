@@ -21,6 +21,8 @@ class GuruController extends Controller
                 ->orWhere('mapel', 'like', "%{$search}%");
         })->latest()->get();
 
+        // $gurus = Guru::orderBy('id_guru', 'asc')->get();
+
         return view('pages.guru.data_guru', compact('gurus', 'search'));
     }
 
@@ -110,6 +112,13 @@ class GuruController extends Controller
         return redirect()
             ->route('admin.guru.index')
             ->with('success', 'Data guru berhasil diubah.');
+    }
+
+     public function publicIndex()
+    {
+        $gurus = Guru::all();
+
+        return view('guru_public', compact('gurus'));
     }
 
     public function destroy(Guru $guru)

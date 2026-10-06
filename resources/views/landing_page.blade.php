@@ -11,7 +11,8 @@
     {{-- Font Plus Jakarta Sans --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-icons/bootstrap-icons.css') }}">
@@ -20,7 +21,7 @@
 
 <body>
 
-  {{-- navbar --}}
+    {{-- navbar --}}
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -45,7 +46,7 @@
     </nav>
 
 
-  {{-- hero/utama --}}
+    {{-- hero/utama --}}
     <section class="hero" id="beranda">
         <div class="container">
             <div class="row align-items-center">
@@ -79,7 +80,7 @@
         </div>
     </section>
 
-{{-- akademi --}}
+    {{-- akademi --}}
     <section class="section akademik" id="akademik">
         <div class="container">
             <div class="row g-4">
@@ -90,7 +91,7 @@
                         <div class="stat-top">
                             <div>
                                 <span>Total</span>
-                                <h2>{{  $jumlahsiswa }}</h2>
+                                <h2>{{ $jumlahsiswa }}</h2>
                             </div>
                             <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
                         </div>
@@ -113,7 +114,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Jumlah Guru</h4>
-                            <a href="{{ route('admin.guru.index') }}">
+                            <a href="{{ route('guru.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -133,7 +134,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Ekstrakurikuler</h4>
-                            <a href="{{ route('admin.ekskul.index') }}">
+                            <a href="{{ route('ekstra.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -153,7 +154,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Galeri</h4>
-                            <a href="{{ route('admin.galeri.index') }}">
+                            <a href="{{ route('galeri.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -166,7 +167,7 @@
     </section>
 
 
-{{-- profil --}}
+    {{-- profil --}}
     <section class="section profile" id="profil">
         <div class="container">
             <div class="section-title">
@@ -177,7 +178,8 @@
             <div class="profile-wrapper">
                 <div class="profile-image-box">
                     @if ($profil && $profil->foto)
-                        <img src="{{ asset('uploads/profile/' . $profil->foto) }}" class="profile-image" alt="Foto Sekolah">
+                        <img src="{{ asset('uploads/profile/' . $profil->foto) }}" class="profile-image"
+                            alt="Foto Sekolah">
                     @else
                         <div class="profile-placeholder">
                             <i class="bi bi-building"></i>
@@ -229,8 +231,41 @@
         </div>
     </section>
 
+    {{-- guru --}}
+    <section class="section guru" id="guru">
+        <div class="container">
+            <div class="section-title">
+                <h2>Guru</h2>
+                <p>Staf Pendidikan & Tenaga Kerja</p>
+                <a href="{{ route('guru.public') }}" class="btn btn-public mt-3">
+                Lihat Semua
+                </a>
+            </div>
+            <div class="row g-4">
+                @foreach ($gurus as $item)
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guru-card h-100">
+                            <div class="guru-image">
+                                @if ($item->foto)
+                                    <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->nama_guru }}">
+                                @else
+                                    <div class="guru-placeholder">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="guru-content">
+                                <h3>{{ $item->nama_guru }}</h3>
+                                <p>{{ $item->mapel }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
-{{-- berita --}}
+    {{-- berita --}}
     <section class="section berita" id="berita">
         <div class="container">
             <div class="section-title">
@@ -242,12 +277,13 @@
             </div>
 
             <div class="row g-4">
-                @foreach ($berita->take(3) as $item)
+                @foreach ($berita as $item)
                     <div class="col-md-6 col-lg-4">
                         <div class="berita-card h-100">
                             <div class="berita-image">
                                 @if ($item->gambar)
-                                    <img src="{{ asset('uploads/berita/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                                    <img src="{{ asset('uploads/berita/' . $item->gambar) }}"
+                                        alt="{{ $item->judul }}">
                                 @else
                                     <div class="berita-placeholder">
                                         <i class="bi bi-newspaper"></i>
@@ -271,7 +307,7 @@
     </section>
 
 
-   {{-- pengumuman --}}
+    {{-- pengumuman --}}
     <section class="section pengumuman" id="pengumuman">
         <div class="container">
             <div class="section-title">
@@ -305,7 +341,7 @@
     </section>
 
 
-  {{-- visi misi --}}
+    {{-- visi misi --}}
     <section class="section visi-misi" id="visi-misi">
         <div class="container">
             <div class="section-title">
@@ -344,7 +380,7 @@
     </section>
 
 
-{{-- footerr --}}
+    {{-- footerr --}}
     <footer>
         <div class="container text-center">
             <p>

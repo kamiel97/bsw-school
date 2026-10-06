@@ -74,11 +74,23 @@
                                     <img src="{{ asset('uploads/galeri/' . $galeri->file) }}" width="80" height="60"
                                         style="object-fit: cover; border-radius: 6px;">
                                 @else
-                                    <span class="badge bg-dark">
-                                        <i class="bi bi-camera-video"></i>
-                                        Video
-                                    </span>
+                                    <video class="video-preview" controls width="80" height="60">
+                                        <source src="{{ asset('uploads/galeri/' . $galeri->file) }} " type="video/mp4">
+                                    </video>
                                 @endif
+                                <style>
+                                    .video-preview {
+                                        width: 80px;
+                                        height: 60px;
+                                        object-fit: cover;
+                                        transition: 0.3s;
+                                    }
+
+                                    .video-preview:focus {
+                                        width: 500px;
+                                        height: 300px;
+                                    }
+                                </style>
 
                             </td>
 

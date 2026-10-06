@@ -20,10 +20,6 @@ class BeritaController extends Controller
         })->latest()->get();
 
         return view('pages.berita.berita', compact('beritas', 'search'));
-
-        // $beritas = Berita::with('user')->latest()->get();
-
-        // return view('pages.berita.berita', compact('beritas'));
     }
 
     public function create()

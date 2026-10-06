@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="/">
                 <i class="bi bi-book-half"></i>
 
-                PENGUMUMAN
+                Ekstrakulikuler
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -39,11 +39,6 @@
                             Beranda
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing_page') }}#pengumuman">
-                            Pengumuman
-                        </a>
-                    </li>
                 </ul>
 
             </div>
@@ -52,26 +47,24 @@
 
     </nav>
 
-    {{-- ALL BERITA --}}
+    {{-- ALL EKSTRA --}}
     <div class="container mt-5 p-5">
-         <div class="section-title">
-                <h2>Pengumuman</h2>
-                <p>Informasi & Pemberitahuan</p>
-            </div>
+        <div class="section-title">
+            <h2>Ekstrakulikuler</h2>
+            <p>Kegiatan</p>
+        </div>
         <div class="row g-4">
-            @foreach ($pengumumans as $pengumuman)
+            @foreach ($ekstras as $item)
                 <div class="col-md-6 col-lg-4">
-                    <div class="pengumuman-card h-100">
-                        <div class="pengumuman-icon">
-                            <i class="bi bi-megaphone-fill"></i>
+                    <div class="ekstra-card h-100">
+                        <div class="ekstra-image">
+                            @if ($item->gambar)
+                                <img src="{{ asset('uploads/ekstrakurikuler/' . $item->gambar) }}" alt="{{ $item->nama_ekskul}}">
+                            @endif
                         </div>
-                        <div class="pengumuman-content">
-                            <div class="pengumuman-date">
-                                <i class="bi bi-calendar3"></i>
-                                {{ $pengumuman->tanggal }}
-                            </div>
-                            <h3>{{ $pengumuman->judul }}</h3>
-                            <p>{{ $pengumuman->isi }}</p>
+
+                        <div class="ekstra-content">
+                            <h3>{{ $item->nama_ekskul }}</h3>
                         </div>
                     </div>
                 </div>

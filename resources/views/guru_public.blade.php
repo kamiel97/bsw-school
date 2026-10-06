@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="/">
                 <i class="bi bi-book-half"></i>
 
-                PENGUMUMAN
+                GURU
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,8 +40,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing_page') }}#pengumuman">
-                            Pengumuman
+                        <a class="nav-link" href="{{ route('landing_page') }}#guru">
+                            Guru
                         </a>
                     </li>
                 </ul>
@@ -52,26 +52,28 @@
 
     </nav>
 
-    {{-- ALL BERITA --}}
+    {{-- ALL GURU --}}
     <div class="container mt-5 p-5">
-         <div class="section-title">
-                <h2>Pengumuman</h2>
-                <p>Informasi & Pemberitahuan</p>
-            </div>
+        <div class="section-title">
+            <h2>Guru</h2>
+            <p>Staf Pendidikan & Tenaga Kerja</p>
+        </div>
         <div class="row g-4">
-            @foreach ($pengumumans as $pengumuman)
-                <div class="col-md-6 col-lg-4">
-                    <div class="pengumuman-card h-100">
-                        <div class="pengumuman-icon">
-                            <i class="bi bi-megaphone-fill"></i>
+            @foreach ($gurus as $item)
+                <div class="col-md-6 col-lg-3">
+                    <div class="guru-card h-100">
+                        <div class="guru-image">
+                            @if ($item->foto)
+                                <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->nama_guru }}">
+                            @else
+                                <div class="guru-placeholder">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                            @endif
                         </div>
-                        <div class="pengumuman-content">
-                            <div class="pengumuman-date">
-                                <i class="bi bi-calendar3"></i>
-                                {{ $pengumuman->tanggal }}
-                            </div>
-                            <h3>{{ $pengumuman->judul }}</h3>
-                            <p>{{ $pengumuman->isi }}</p>
+                        <div class="guru-content">
+                            <h3>{{ $item->nama_guru }}</h3>
+                            <p>{{ $item->mapel }}</p>
                         </div>
                     </div>
                 </div>

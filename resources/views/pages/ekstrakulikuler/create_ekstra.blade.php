@@ -46,7 +46,7 @@
                            class="form-control @error('nama_ekskul') is-invalid @enderror"
                            value="{{ old('nama_ekskul') }}"
                            maxlength="40"
-                           placeholder="Contoh: Futsal">
+                           placeholder="nama ekskul">
 
                     @error('nama_ekskul')
                         <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                            class="form-control @error('pembina') is-invalid @enderror"
                            value="{{ old('pembina') }}"
                            maxlength="40"
-                           placeholder="Nama pembina">
+                           placeholder="nama pembina">
 
                     @error('pembina')
                         <div class="invalid-feedback">
@@ -90,7 +90,7 @@
                            class="form-control @error('jadwal_latihan') is-invalid @enderror"
                            value="{{ old('jadwal_latihan') }}"
                            maxlength="40"
-                           placeholder="Contoh: Senin & Rabu, 15:00">
+                           placeholder="hari & jam">
 
                     @error('jadwal_latihan')
                         <div class="invalid-feedback">
@@ -110,7 +110,7 @@
                     <textarea name="deskripsi"
                               rows="5"
                               class="form-control @error('deskripsi') is-invalid @enderror"
-                              placeholder="Masukkan deskripsi ekstrakurikuler">{{ old('deskripsi') }}</textarea>
+                              placeholder="deskripsi ekstrakurikuler / tempat ekskul">{{ old('deskripsi') }}</textarea>
 
                     @error('deskripsi')
                         <div class="invalid-feedback">

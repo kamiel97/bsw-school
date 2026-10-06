@@ -110,6 +110,13 @@ class GaleriController extends Controller
             ->with('success', 'Data galeri berhasil diperbarui.');
     }
 
+    public function publicIndex(){
+
+     $galeris = Galeri::all();
+
+      return view('galeri_public', compact('galeris'));
+    }
+
     public function destroy(Galeri $galeri)
     {
         $galeri->delete();
