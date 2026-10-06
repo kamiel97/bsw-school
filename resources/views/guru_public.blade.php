@@ -57,6 +57,7 @@
         <div class="section-title">
             <h2>Guru</h2>
             <p>Staf Pendidikan & Tenaga Kerja</p>
+            <hr>
         </div>
         <div class="row g-4">
             @foreach ($gurus as $item)
@@ -80,6 +81,16 @@
             @endforeach
         </div>
     </div>
+        {{-- footerr --}}
+    <footer>
+        <div class="container text-center">
+            <p>
+                &copy; {{ date('Y') }}
+                {{ $profil->nama_sekolah ?? 'BSW - Best Student Website' }}.
+                All Rights Reserved.
+            </p>
+        </div>
+    </footer>
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 

@@ -51,34 +51,39 @@
     <div class="container mt-5 p-5">
         <div class="section-title">
             <h2>Galeri</h2>
-            <p>Kegiatan</p>
+            <p>Publikasi dan Dokumentasi</p>
+            <hr>
         </div>
         <div class="row g-4">
             @foreach ($galeris as $item)
                 <div class="col-md-6 col-lg-4">
-                    <div class="ekstra-card h-100">
-                        <div class="ekstra-image">
-                             @if ($item->kategori == 'Foto')
-                                    <img src="{{ asset('uploads/galeri/' . $item->file) }}"
-                                        style="object-fit: cover; border-radius: 6px;">
-                                @else
-                                    <video class="video-preview" controls>
-                                        <source src="{{ asset('uploads/galeri/' . $item->file) }} " type="video/mp4">
-                                    </video>
-                                @endif
-                                <style>
-                                    .video-preview {
-                                        width: 100%;
-                                        height: 100%;
-                                        object-fit: cover;
-                                        transition: 0.3s;
-                                    }
-                                </style>
+                    <div class="galeri-card h-100">
+                        <div class="galeri-image">
+                            @if ($item->kategori == 'Foto')
+                                <img src="{{ asset('uploads/galeri/' . $item->file) }}"
+                                    style="object-fit: cover; border-radius: 6px;">
+                            @else
+                                <video class="video-preview" controls>
+                                    <source src="{{ asset('uploads/galeri/' . $item->file) }} " type="video/mp4">
+                                </video>
+                            @endif
+                            <style>
+                                .video-preview {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    transition: 0.3s;
+                                }
+                            </style>
                         </div>
 
-                        <div class="ekstra-content">
+                        <div class="galeri-content">
                             <h3>{{ $item->judul }}</h3>
-                            <p>{{ $item->keterangan }}</p>
+                            <hr>
+                            <div class="container">
+                                <p><i class="bi bi-info-circle-fill">   </i> <strong>Keterangan : </strong>{{ $item->keterangan }}</p>
+                                <p><strong>Kategori : </strong>{{ $item->kategori }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

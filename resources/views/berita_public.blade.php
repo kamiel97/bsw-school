@@ -57,6 +57,7 @@
         <div class="section-title">
             <h2>Berita</h2>
             <p>Berita Update</p>
+            <hr>
         </div>
         <div class="row g-4">
             @foreach ($beritas as $item)

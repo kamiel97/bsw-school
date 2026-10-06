@@ -51,7 +51,8 @@
     <div class="container mt-5 p-5">
         <div class="section-title">
             <h2>Ekstrakulikuler</h2>
-            <p>Kegiatan</p>
+            <p>Kembangkan minat, bakat, dan potensimu</p>
+            <hr>
         </div>
         <div class="row g-4">
             @foreach ($ekstras as $item)
@@ -65,11 +66,18 @@
 
                         <div class="ekstra-content">
                             <h3>{{ $item->nama_ekskul }}</h3>
+                            <hr>
+                            <div class="container">
+                             <p><i class="bi bi-person-fill">  </i><strong>Pembina :</strong> {{ $item->pembina }}</p>
+                             <p><i class="bi bi-clock-fill">  </i><strong>Jadwal  :</strong> {{ $item->jadwal_latihan }}</p>
+                             <p>{{ $item->deskripsi}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+
     </div>
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>

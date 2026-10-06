@@ -57,7 +57,8 @@
          <div class="section-title">
                 <h2>Pengumuman</h2>
                 <p>Informasi & Pemberitahuan</p>
-            </div>
+                <hr>
+         </div>
         <div class="row g-4">
             @foreach ($pengumumans as $pengumuman)
                 <div class="col-md-6 col-lg-4">
