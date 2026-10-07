@@ -34,14 +34,9 @@
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
-                    <li class="nav-item">
-                        <a href="{{ route('landing_page') }}" class="nav-link">
-                            Beranda
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing_page') }}#pengumuman">
-                            Pengumuman
+                  <li class="nav-item">
+                       <a href="{{ route('landing_page') }}#pengumuman" class="btn btn-hero btn-sm rounded-pill px-3">
+                           <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
                 </ul>
@@ -54,11 +49,27 @@
 
     {{-- ALL BERITA --}}
     <div class="container mt-5 p-5">
-         <div class="section-title">
-                <h2>Pengumuman</h2>
-                <p>Informasi & Pemberitahuan</p>
-                <hr>
-         </div>
+        <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+            <div class="text-start">
+                <h3 class="fw-bold mb-1" style="color: #1B4F75;">PENGUMUMAN</h3>
+                <p class="text-muted mb-2">Informasi & Pemberitahuan</p>
+                <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
+            </div>
+            <form action="{{ route('pengumuman.public') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control"
+                    style="width: 400px;" placeholder="Cari Pengumuman">
+
+                <button type="submit" class="btn" style=" background:#1B4F75;">
+                    <i class="bi bi-search" style="color: white"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('pengumuman.public') }}" class="btn btn-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
+        </div>
         <div class="row g-4">
             @foreach ($pengumumans as $pengumuman)
                 <div class="col-md-6 col-lg-4">

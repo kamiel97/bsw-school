@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Contracts\Encryption\DecryptException;
-
 
 class GaleriController extends Controller
 {
@@ -40,7 +39,7 @@ class GaleriController extends Controller
 
         $file = $request->file('file');
 
-        $namaFile = time() . '_' . $file->getClientOriginalName();
+        $namaFile = time().'_'.$file->getClientOriginalName();
 
         $file->move(
             public_path('uploads/galeri'),
@@ -62,13 +61,13 @@ class GaleriController extends Controller
 
     public function edit($id)
     {
-         try {
+        try {
             $id = Crypt::decryptString($id);
         } catch (DecryptException $e) {
             return redirect()->route('admin.galeri.index');
         }
 
-         $galeri = Galeri::findOrFail($id);
+        $galeri = Galeri::findOrFail($id);
 
         return view('pages.galeri.edit_galeri', compact('galeri'));
     }
@@ -93,7 +92,7 @@ class GaleriController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
 
-            $namaFile = time() . '_' . $file->getClientOriginalName();
+            $namaFile = time().'_'.$file->getClientOriginalName();
 
             $file->move(
                 public_path('uploads/galeri'),
@@ -110,11 +109,17 @@ class GaleriController extends Controller
             ->with('success', 'Data galeri berhasil diperbarui.');
     }
 
-    public function publicIndex(){
+    public function publicIndex(Request $request)
+    {
 
-     $galeris = Galeri::all();
+        $search = $request->search;
 
-      return view('galeri_public', compact('galeris'));
+        $galeris = Galeri::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('kategori', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('galeri_public', compact('galeris', 'search'));
     }
 
     public function destroy(Galeri $galeri)
@@ -126,5 +131,3 @@ class GaleriController extends Controller
             ->with('success', 'Data galeri berhasil dihapus.');
     }
 }
-
-

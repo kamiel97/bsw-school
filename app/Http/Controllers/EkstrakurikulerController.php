@@ -105,11 +105,17 @@ class EkstrakurikulerController extends Controller
             ->with('success', 'Data ekstrakurikuler berhasil diperbarui.');
     }
 
-    public function publicIndex(){
+    public function publicIndex(Request $request){
 
-     $ekstras = Ekstrakurikuler::all();
+      $search = $request->search;
 
-      return view('ekstra_public', compact('ekstras'));
+        $ekstras = Ekstrakurikuler::when($search, function ($query) use ($search) {
+            $query->where('nama_ekskul', 'like', "%{$search}%")
+                ->orWhere('pembina', 'like', "%{$search}%")
+                ->orWhere('jadwal_latihan', 'like', "%{$search}%");
+        })->latest()->get();
+
+      return view('ekstra_public', compact('ekstras', 'search'));
     }
 
     public function destroy(Ekstrakurikuler $ekstrakurikuler)

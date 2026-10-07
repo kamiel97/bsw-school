@@ -66,13 +66,16 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil ditambahkan.');
     }
 
-    public function publicIndex()
+    public function publicIndex(Request $request)
     {
-        $beritas = Berita::where('status', 'Publish')
-            ->latest('tanggal')
-            ->get();
+         $search = $request->search;
 
-        return view('berita_public', compact('beritas'));
+        $beritas = Berita::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+        })->latest()->get();
+
+        return view('berita_public', compact('beritas', 'search'));
     }
 
     public function edit($id)

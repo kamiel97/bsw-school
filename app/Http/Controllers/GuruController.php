@@ -114,11 +114,18 @@ class GuruController extends Controller
             ->with('success', 'Data guru berhasil diubah.');
     }
 
-     public function publicIndex()
+     public function publicIndex(Request $request)
     {
-        $gurus = Guru::all();
+         $search = $request->search;
 
-        return view('guru_public', compact('gurus'));
+         $gurus = Guru::when($search, function ($query) use ($search) {
+            $query->where('nama_guru', 'like', "%{$search}%")
+                ->orWhere('mapel', 'like', "%{$search}%");
+        })->latest()->get();
+
+        // $gurus = Guru::all();
+
+        return view('guru_public', compact('gurus', 'search'));
     }
 
     public function destroy(Guru $guru)

@@ -33,15 +33,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-
                     <li class="nav-item">
-                        <a href="{{ route('landing_page') }}" class="nav-link">
-                            Beranda
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing_page') }}#guru">
-                            Guru
+                        <a href="{{ route('landing_page') }}" class="btn btn-hero btn-sm rounded-pill px-3">
+                            <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
                 </ul>
@@ -54,11 +48,28 @@
 
     {{-- ALL GURU --}}
     <div class="container mt-5 p-5">
-        <div class="section-title">
-            <h2>Guru</h2>
-            <p>Staf Pendidikan & Tenaga Kerja</p>
-            <hr>
+        <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+            <div class="text-start">
+                <h3 class="fw-bold mb-1" style="color: #1B4F75; ">GURU</h3>
+                <p class="text-muted mb-2">Staf Pendidikan & Tenaga Kerja</p>
+                <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
+            </div>
+            <form action="{{ route('guru.public') }}" method="GET" class="d-flex gap-2">
+                <input type="text" name="search" value="{{ $search }}" class="form-control"
+                    style="width: 400px;" placeholder="Cari nama atau mapel">
+
+                <button type="submit" class="btn" style="background: #1B4F75;">
+                    <i class="bi bi-search" style="color: white"></i>
+                </button>
+
+                @if ($search)
+                    <a href="{{ route('guru.public') }}" class="btn btn-secondary">
+                        Reset
+                    </a>
+                @endif
+            </form>
         </div>
+        {{-- card --}}
         <div class="row g-4">
             @foreach ($gurus as $item)
                 <div class="col-md-6 col-lg-3">
@@ -81,7 +92,7 @@
             @endforeach
         </div>
     </div>
-        {{-- footerr --}}
+    {{-- footerr --}}
     <footer>
         <div class="container text-center">
             <p>

@@ -62,7 +62,7 @@
                         {{ $profil->deskripsi ?? 'Website informasi dan profil sekolah yang menyediakan berbagai informasi untuk siswa, guru, dan masyarakat.' }}
                     </p>
 
-                    <a href="#profil" class="btn-hero">
+                    <a href="#profil" class="btn-custom btn-hero">
                         Kenal Lebih Dekat
                         <i class="bi bi-arrow-right"></i>
                     </a>

@@ -52,13 +52,17 @@ class PengumumanController extends Controller
             ->with('success', 'Pengumuman berhasil ditambahkan.');
     }
 
-    public function publicIndex()
+    public function publicIndex(Request $request)
     {
-        $pengumumans = Pengumuman::where('status', 'Publish')
-            ->latest('tanggal')
-            ->get();
+        $search = $request->search;
 
-        return view('pengumuman_public', compact('pengumumans'));
+        $pengumumans = Pengumuman::when($search, function ($query) use ($search) {
+            $query->where('judul', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+
+        })->latest()->get();
+
+        return view('pengumuman_public', compact('pengumumans', 'search'));
     }
 
     public function edit($id)
