@@ -120,7 +120,8 @@ class GuruController extends Controller
 
          $gurus = Guru::when($search, function ($query) use ($search) {
             $query->where('nama_guru', 'like', "%{$search}%")
-                ->orWhere('mapel', 'like', "%{$search}%");
+                  ->orWhere('nip', 'like', "%{$search}%")
+                  ->orWhere('mapel', 'like', "%{$search}%");
         })->latest()->get();
 
         // $gurus = Guru::all();

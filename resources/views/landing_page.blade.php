@@ -39,7 +39,7 @@
                     <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pengumuman">Pengumuman</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#visi-misi">Visi & Misi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
                 </ul>
             </div>
         </div>
@@ -229,6 +229,40 @@
                 </div>
             </div>
         </div>
+         <div class="container" style="margin-top: 100px">
+            <div class="section-title">
+                <h2>Visi & Misi</h2>
+                <p>Landasan dan tujuan sekolah</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="visi-card h-100">
+                        <div class="visi-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <div class="visi-content">
+                            <span>VISI SEKOLAH</span>
+                            <h3>Visi</h3>
+                            <p>{{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="visi-card h-100">
+                        <div class="visi-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="visi-content">
+                            <span>TENTANG SEKOLAH</span>
+                            <h3>Tentang Sekolah</h3>
+                            <p>{{ $profil->deskripsi ?? 'Informasi sekolah belum tersedia.' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     {{-- guru --}}
@@ -256,7 +290,10 @@
                             </div>
                             <div class="guru-content">
                                 <h3>{{ $item->nama_guru }}</h3>
-                                <p>{{ $item->mapel }}</p>
+
+                                <p><i class="bi bi-book-half me-2" style="color: #1B4F75"></i>{{ $item->mapel }}</p>
+
+                                <button class="btn-custom btn-detail">lihat selengkapnya</button>
                             </div>
                         </div>
                     </div>
@@ -292,12 +329,12 @@
                             </div>
 
                             <div class="berita-content">
+                                <h3><i class="bi bi-newspaper me-2"></i>{{ $item->judul }}</h3>
                                 <div class="berita-date">
-                                    <i class="bi bi-newspaper"></i>
                                     {{ $item->tanggal }}
                                 </div>
-                                <h3>{{ $item->judul }}</h3>
-                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p>
+                                <a href="">Lihat Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                                {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
                             </div>
                         </div>
                     </div>
@@ -341,12 +378,11 @@
     </section>
 
 
-    {{-- visi misi --}}
-    <section class="section visi-misi" id="visi-misi">
+    {{-- galeri --}}
+    <section class="section visi-misi" id="galeri">
         <div class="container">
             <div class="section-title">
-                <h2>Visi & Misi</h2>
-                <p>Landasan dan tujuan sekolah</p>
+                <h2>Galeri</h2>
             </div>
 
             <div class="row g-4">

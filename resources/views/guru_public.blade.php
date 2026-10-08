@@ -85,7 +85,11 @@
                         </div>
                         <div class="guru-content">
                             <h3>{{ $item->nama_guru }}</h3>
-                            <p>{{ $item->mapel }}</p>
+
+                            <p><i class="bi bi-book-half me-2" style="color: #1B4F75"></i>{{ $item->mapel }}</p>
+
+                            <button class="btn-custom btn-detail">lihat selengkapnya</button>
+
                         </div>
                     </div>
                 </div>
