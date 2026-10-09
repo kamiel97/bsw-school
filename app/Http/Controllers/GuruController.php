@@ -114,19 +114,32 @@ class GuruController extends Controller
             ->with('success', 'Data guru berhasil diubah.');
     }
 
-     public function publicIndex(Request $request)
+    public function detail($id)
     {
-         $search = $request->search;
+         try {
+            $id = Crypt::decryptString($id);
+        } catch (DecryptException $e) {
+            return redirect()->route('landing_page');
+        }
 
-         $gurus = Guru::when($search, function ($query) use ($search) {
+        $guru = Guru::findOrFail($id);
+
+        return view('detail.guru_detail', compact('guru'));
+    }
+
+    public function publicIndex(Request $request)
+    {
+        $search = $request->search;
+
+        $gurus = Guru::when($search, function ($query) use ($search) {
             $query->where('nama_guru', 'like', "%{$search}%")
-                  ->orWhere('nip', 'like', "%{$search}%")
-                  ->orWhere('mapel', 'like', "%{$search}%");
+                ->orWhere('nip', 'like', "%{$search}%")
+                ->orWhere('mapel', 'like', "%{$search}%");
         })->latest()->get();
 
         // $gurus = Guru::all();
 
-        return view('guru_public', compact('gurus', 'search'));
+        return view('public.guru_public', compact('gurus', 'search'));
     }
 
     public function destroy(Guru $guru)

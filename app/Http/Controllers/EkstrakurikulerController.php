@@ -115,7 +115,7 @@ class EkstrakurikulerController extends Controller
                 ->orWhere('jadwal_latihan', 'like', "%{$search}%");
         })->latest()->get();
 
-      return view('ekstra_public', compact('ekstras', 'search'));
+      return view('public.ekstra_public', compact('ekstras', 'search'));
     }
 
     public function destroy(Ekstrakurikuler $ekstrakurikuler)

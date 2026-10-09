@@ -60,7 +60,7 @@
                 <p class="text-muted mb-2">Staf Pendidikan & Tenaga Kerja</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('guru.public') }}" method="GET" class="d-flex gap-2">
+            <form action="{{ route('public.guru.public') }}" method="GET" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
                     style="width: 400px;" placeholder="Cari nama atau mapel">
 
@@ -69,7 +69,7 @@
                 </button>
 
                 @if ($search)
-                    <a href="{{ route('guru.public') }}" class="btn btn-secondary">
+                    <a href="{{ route('public.guru.public') }}" class="btn btn-secondary">
                         Reset
                     </a>
                 @endif
@@ -94,7 +94,11 @@
 
                             <p><i class="bi bi-book-half me-2" style="color: #1B4F75"></i>{{ $item->mapel }}</p>
 
-                            <button class="btn-custom btn-detail">lihat selengkapnya</button>
+                            <a href="{{ route('detail.guru.detail', Crypt::encryptString($item->id_guru)) }}"
+                                class="btn-custom btn-detail">
+                                Lihat Selengkapnya
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
 
                         </div>
                     </div>
@@ -102,16 +106,6 @@
             @endforeach
         </div>
     </div>
-    {{-- footerr --}}
-    <footer>
-        <div class="container text-center">
-            <p>
-                &copy; {{ date('Y') }}
-                {{ $profil->nama_sekolah ?? 'BSW - Best Student Website' }}.
-                All Rights Reserved.
-            </p>
-        </div>
-    </footer>
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 

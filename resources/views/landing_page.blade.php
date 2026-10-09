@@ -20,6 +20,7 @@
 </head>
 
 {{-- na body ditambah ini biar pas scrol dan link active --}}
+
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-smooth-scroll="true" tabindex="0">
 
     {{-- navbar --}}
@@ -117,7 +118,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Jumlah Guru</h4>
-                            <a href="{{ route('guru.public') }}">
+                            <a href="{{ route('public.guru.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -137,7 +138,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Ekstrakurikuler</h4>
-                            <a href="{{ route('ekstra.public') }}">
+                            <a href="{{ route('public.ekstra.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -157,7 +158,7 @@
                         </div>
                         <div class="stat-bottom">
                             <h4>Galeri</h4>
-                            <a href="{{ route('galeri.public') }}">
+                            <a href="{{ route('public.galeri.public') }}">
                                 Lihat semua data
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -255,7 +256,7 @@
             <div class="section-title">
                 <h2>Guru</h2>
                 <p>Staf Pendidikan & Tenaga Kerja</p>
-                <a href="{{ route('guru.public') }}" class="btn btn-public mt-3">
+                <a href="{{ route('public.guru.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>
@@ -277,7 +278,11 @@
 
                                 <p><i class="bi bi-book-half me-2" style="color: #1B4F75"></i>{{ $item->mapel }}</p>
 
-                                <button class="btn-custom btn-detail">lihat selengkapnya</button>
+                                <a href="{{ route('detail.guru.detail', Crypt::encryptString($item->id_guru))}}" class="btn-custom btn-detail">
+                                    Lihat Selengkapnya
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -292,7 +297,7 @@
             <div class="section-title">
                 <h2>Ekstrakulikuler</h2>
                 <p>Kembangkan Minat dan Bakatmu</p>
-                <a href="{{ route('ekstra.public') }}" class="btn btn-public mt-3">
+                <a href="{{ route('public.ekstra.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>
@@ -332,7 +337,7 @@
             <div class="section-title">
                 <h2>Pengumuman</h2>
                 <p>Informasi & Pemberitahuan</p>
-                <a href="{{ route('pengumuman.public') }}" class="btn btn-public mt-3">
+                <a href="{{ route('public.pengumuman.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>
@@ -365,7 +370,7 @@
             <div class="section-title">
                 <h2>Berita</h2>
                 <p>Berita Update</p>
-                <a href="{{ route('berita.public') }}" class="btn btn-public mt-3">
+                <a href="{{ route('public.berita.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>
@@ -390,7 +395,7 @@
                                 <div class="berita-date">
                                     {{ $item->tanggal }}
                                 </div>
-                                <a href="" style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
+                                <a href="{{ route('detail.berita.detail',['id' => \Illuminate\Support\Facades\Crypt::encryptString((string) $item->id_berita)])}}" style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
                                         class="bi bi-arrow-right"></i></a>
                                 {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
                             </div>
@@ -407,7 +412,7 @@
             <div class="section-title">
                 <h2>Galeri</h2>
                 <p>Publikasi & Dokumentasi</p>
-                <a href="{{ route('galeri.public') }}" class="btn btn-public mt-3">
+                <a href="{{ route('public.galeri.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>

@@ -119,7 +119,7 @@ class GaleriController extends Controller
                 ->orWhere('kategori', 'like', "%{$search}%");
         })->latest()->get();
 
-        return view('galeri_public', compact('galeris', 'search'));
+        return view('public.galeri_public', compact('galeris', 'search'));
     }
 
     public function destroy(Galeri $galeri)

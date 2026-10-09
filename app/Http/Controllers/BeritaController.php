@@ -68,15 +68,31 @@ class BeritaController extends Controller
 
     public function publicIndex(Request $request)
     {
-         $search = $request->search;
+        $search = $request->search;
 
         $beritas = Berita::when($search, function ($query) use ($search) {
             $query->where('judul', 'like', "%{$search}%")
                 ->orWhere('status', 'like', "%{$search}%");
         })->latest()->get();
 
-        return view('berita_public', compact('beritas', 'search'));
+        return view('public.berita_public', compact('beritas', 'search'));
     }
+
+  public function publicDetail($id)
+{
+    try {
+        $id = Crypt::decryptString($id);
+    } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+        abort(404);
+    }
+
+    $beritas = Berita::with('user')
+        ->where('id_berita', $id)
+        ->where('status', 'Publish')
+        ->firstOrFail();
+
+    return view('detail.berita_detail', compact('beritas'));
+}
 
     public function edit($id)
     {

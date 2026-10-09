@@ -61,7 +61,7 @@
                 <p class="text-muted mb-2">Pubilikasi & Dokumentasi</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('galeri.public') }}" method="GET" class="d-flex gap-2">
+            <form action="{{ route('public.galeri.public') }}" method="GET" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
                     style="width: 400px;" placeholder="Cari Foto & Video">
 
@@ -70,7 +70,7 @@
                 </button>
 
                 @if ($search)
-                    <a href="{{ route('galeri.public') }}" class="btn btn-secondary">
+                    <a href="{{ route('public.galeri.public') }}" class="btn btn-secondary">
                         Reset
                     </a>
                 @endif

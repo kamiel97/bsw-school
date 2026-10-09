@@ -62,7 +62,7 @@ class PengumumanController extends Controller
 
         })->latest()->get();
 
-        return view('pengumuman_public', compact('pengumumans', 'search'));
+        return view('public.pengumuman_public', compact('pengumumans', 'search'));
     }
 
     public function edit($id)

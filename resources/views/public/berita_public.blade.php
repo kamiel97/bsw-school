@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semua Pengumuman - BSW</title>
+    <title>Semua Berita - BSW</title>
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-icons/bootstrap-icons.css') }}">
@@ -24,10 +24,10 @@
 
         <div class="container">
 
-            <a class="navbar-brand" style=" font-family:'plus Jakarta', serif ;" href="/">
-                <i class="bi bi-book-half"></i>
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-book-half" style="  font-family:'plus Jakarta', serif ;"></i>
 
-                Ekstrakurikuler
+                Berita
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,8 +40,8 @@
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
-                    <li class="nav-item">
-                        <a href="{{ route('landing_page') }}#ekstra" class="btn btn-hero btn-sm rounded-pill px-3">
+                   <li class="nav-item">
+                       <a href="{{ route('landing_page') }}#berita" class="btn btn-hero btn-sm rounded-pill px-3">
                            <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
@@ -53,56 +53,57 @@
 
     </nav>
 
-    {{-- ALL EKSTRA --}}
-    <div class="container mt-5 p-5 ">
-       <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+    {{-- ALL BERITA --}}
+    <div class="container mt-5 p-5">
+        <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
             <div class="text-start">
-                <h3 class="fw-bold mb-1" style="color: #1B4F75">EKSTRAKURIKULER</h3>
-                <p class="text-muted mb-2">Kembangkan Minat dan Bakatmu</p>
+                <h3 class="fw-bold mb-1" style="color: #1B4F75;">BERITA</h3>
+                <p class="text-muted mb-2">Berita Update</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('ekstra.public') }}" method="GET" class="d-flex gap-2">
+            <form action="{{ route('public.berita.public') }}" method="GET" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
-                    style="width: 400px;" placeholder="Cari Ekstrakurikuler">
+                    style="width: 400px;" placeholder="Cari Berita">
 
-                <button type="submit" class="btn" style="background: #1B4F75; ">
-                   <i class="bi bi-search" style="color: white"></i>
+                <button type="submit" class="btn" style="background:#1B4F75">
+                    <i class="bi bi-search" style="color: white"></i>
                 </button>
 
                 @if ($search)
-                    <a href="{{ route('ekstra.public') }}" class="btn btn-secondary">
+                    <a href="{{ route('public.berita.public') }}" class="btn btn-secondary">
                         Reset
                     </a>
                 @endif
             </form>
         </div>
-        {{-- card --}}
         <div class="row g-4">
-            @foreach ($ekstras as $item)
+            @foreach ($beritas as $item)
                 <div class="col-md-6 col-lg-4">
-                    <div class="ekstra-card h-100">
-                        <div class="ekstra-image">
+                    <div class="berita-card h-100">
+                        <div class="berita-image">
                             @if ($item->gambar)
-                                <img src="{{ asset('uploads/ekstrakurikuler/' . $item->gambar) }}"
-                                    alt="{{ $item->nama_ekskul }}">
+                                <img src="{{ asset('uploads/berita/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                            @else
+                                <div class="berita-placeholder">
+                                    <i class="bi bi-newspaper"></i>
+                                </div>
                             @endif
                         </div>
 
-                        <div class="ekstra-content">
-                            <h3>{{ $item->nama_ekskul }}</h3>
-                            <hr>
-                            <div class="container">
-                                <p><i class="bi bi-person-fill"> </i><strong>Pembina :</strong> {{ $item->pembina }}</p>
-                                <p><i class="bi bi-clock-fill"> </i><strong>Jadwal :</strong>
-                                    {{ $item->jadwal_latihan }}</p>
-                                <p>{{ $item->deskripsi }}</p>
+                        <div class="berita-content">
+                            <div class="berita-date">
+                                <i class="bi bi-newspaper"></i>
+                                {{ $item->tanggal }}
                             </div>
+                            <h3>{{ $item->judul }}</h3>
+                            <a href="{{ route('detail.berita.detail',['id' => \Illuminate\Support\Facades\Crypt::encryptString((string) $item->id_berita)])}}" style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
+                                        class="bi bi-arrow-right"></i></a>
+                            {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
     </div>
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>

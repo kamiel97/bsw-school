@@ -61,7 +61,7 @@
                 <p class="text-muted mb-2">Informasi & Pemberitahuan</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('pengumuman.public') }}" method="GET" class="d-flex gap-2">
+            <form action="{{ route('public.pengumuman.public') }}" method="GET" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
                     style="width: 400px;" placeholder="Cari Pengumuman">
 
@@ -70,7 +70,7 @@
                 </button>
 
                 @if ($search)
-                    <a href="{{ route('pengumuman.public') }}" class="btn btn-secondary">
+                    <a href="{{ route('public.pengumuman.public') }}" class="btn btn-secondary">
                         Reset
                     </a>
                 @endif

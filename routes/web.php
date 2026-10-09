@@ -128,13 +128,18 @@ Route::middleware('auth')->group(function () {
 
 // Public
 Route::get('/semua-berita', [BeritaController::class, 'publicIndex'])
-    ->name('berita.public');
+    ->name('public.berita.public');
 Route::get('/semua-pengumuman', [PengumumanController::class, 'publicIndex'])
-    ->name('pengumuman.public');
+    ->name('public.pengumuman.public');
 Route::get('/semua-guru', [GuruController::class, 'publicIndex'])
-    ->name('guru.public');
+    ->name('public.guru.public');
 Route::get('/semua-ekstra', [EkstrakurikulerController::class, 'publicIndex'])
-    ->name('ekstra.public');
+    ->name('public.ekstra.public');
 Route::get('/semua-galeri', [GaleriController::class, 'publicIndex'])
-    ->name('galeri.public');
+    ->name('public.galeri.public');
 
+//Detail
+Route::get('/detail-guru/{id}', [GuruController::class, 'detail'])
+    ->name('detail.guru.detail');
+Route::get('/detail-berita/{id}', [BeritaController::class, 'publicDetail'])
+    ->name('detail.berita.detail');
