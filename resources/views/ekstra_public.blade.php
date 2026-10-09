@@ -9,6 +9,12 @@
 
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-icons/bootstrap-icons.css') }}">
 
+    {{-- Font Plus Jakarta Sans --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     {{-- link ke css --}}
     <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
 </head>
@@ -18,10 +24,10 @@
 
         <div class="container">
 
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" style=" font-family:'plus Jakarta', serif ;" href="/">
                 <i class="bi bi-book-half"></i>
 
-                Ekstrakulikuler
+                Ekstrakurikuler
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -35,7 +41,7 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
-                        <a href="{{ route('landing_page') }}" class="btn btn-hero btn-sm rounded-pill px-3">
+                        <a href="{{ route('landing_page') }}#ekstra" class="btn btn-hero btn-sm rounded-pill px-3">
                            <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
@@ -51,7 +57,7 @@
     <div class="container mt-5 p-5 ">
        <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
             <div class="text-start">
-                <h3 class="fw-bold mb-1" style="color: #1B4F75">EKSTRAKULIKULER</h3>
+                <h3 class="fw-bold mb-1" style="color: #1B4F75">EKSTRAKURIKULER</h3>
                 <p class="text-muted mb-2">Kembangkan Minat dan Bakatmu</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>

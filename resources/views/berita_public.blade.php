@@ -9,6 +9,12 @@
 
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-icons/bootstrap-icons.css') }}">
 
+    {{-- Font Plus Jakarta Sans --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     {{-- link ke css --}}
     <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
 </head>
@@ -19,9 +25,9 @@
         <div class="container">
 
             <a class="navbar-brand" href="/">
-                <i class="bi bi-book-half"></i>
+                <i class="bi bi-book-half" style="  font-family:'plus Jakarta', serif ;"></i>
 
-                BERITA
+                Berita
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

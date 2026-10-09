@@ -35,6 +35,10 @@ Route::get('/', function () {
         ->get();
     $gurus = Guru::all()
         ->take(4);
+    $galeris = Galeri::all()
+        ->take(3);
+    $ekstras = Ekstrakurikuler::all()
+        ->take(3);
 
     $jumlahsiswa = Siswa::count();
     $jumlahguru = Guru::count();
@@ -45,6 +49,8 @@ Route::get('/', function () {
         'profil',
         'berita',
         'gurus',
+        'galeris',
+        'ekstras',
         'pengumumans',
         'jumlahsiswa',
         'jumlahguru',

@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
 </head>
 
-<body>
+{{-- na body ditambah ini biar pas scrol dan link active --}}
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-smooth-scroll="true" tabindex="0">
 
     {{-- navbar --}}
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
@@ -37,8 +38,10 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#guru">Guru</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ekstra">Ekstrakurikuler</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pengumuman">Pengumuman</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
                     <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
                 </ul>
             </div>
@@ -83,7 +86,7 @@
     {{-- akademi --}}
     <section class="section akademik" id="akademik">
         <div class="container">
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
 
                 {{-- siswa --}}
                 <div class="col-md-6 col-lg-3">
@@ -229,35 +232,16 @@
                 </div>
             </div>
         </div>
-         <div class="container" style="margin-top: 100px">
-            <div class="section-title">
-                <h2>Visi & Misi</h2>
-                <p>Landasan dan tujuan sekolah</p>
-            </div>
-
+        <div class="container" style="margin-top: 100px">
             <div class="row g-4">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="visi-card h-100">
-                        <div class="visi-icon">
-                            <i class="bi bi-eye"></i>
-                        </div>
                         <div class="visi-content">
-                            <span>VISI SEKOLAH</span>
-                            <h3>Visi</h3>
-                            <p>{{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="visi-card h-100">
-                        <div class="visi-icon">
-                            <i class="bi bi-building"></i>
-                        </div>
-                        <div class="visi-content">
-                            <span>TENTANG SEKOLAH</span>
-                            <h3>Tentang Sekolah</h3>
-                            <p>{{ $profil->deskripsi ?? 'Informasi sekolah belum tersedia.' }}</p>
+                            <h3>Visi & Misi</h3>
+                            <span>Landasan dan tujuan sekolah</span>
+                            <hr>
+                            <p style="white-space: pre-line;">
+                                {{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}</p>
                         </div>
                     </div>
                 </div>
@@ -272,10 +256,10 @@
                 <h2>Guru</h2>
                 <p>Staf Pendidikan & Tenaga Kerja</p>
                 <a href="{{ route('guru.public') }}" class="btn btn-public mt-3">
-                Lihat Semua
+                    Lihat Semua
                 </a>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 @foreach ($gurus as $item)
                     <div class="col-md-6 col-lg-3">
                         <div class="guru-card h-100">
@@ -302,39 +286,38 @@
         </div>
     </section>
 
-    {{-- berita --}}
-    <section class="section berita" id="berita">
+    {{-- ekskul --}}
+    <section class="section ekstrakulikuler" id="ekstra">
         <div class="container">
             <div class="section-title">
-                <h2>Berita</h2>
-                <p>Berita Update</p>
-                <a href="{{ route('berita.public') }}" class="btn btn-public mt-3">
+                <h2>Ekstrakulikuler</h2>
+                <p>Kembangkan Minat dan Bakatmu</p>
+                <a href="{{ route('ekstra.public') }}" class="btn btn-public mt-3">
                     Lihat Semua
                 </a>
             </div>
 
             <div class="row g-4">
-                @foreach ($berita as $item)
+                @foreach ($ekstras as $item)
                     <div class="col-md-6 col-lg-4">
-                        <div class="berita-card h-100">
-                            <div class="berita-image">
+                        <div class="ekstra-card h-100">
+                            <div class="ekstra-image">
                                 @if ($item->gambar)
-                                    <img src="{{ asset('uploads/berita/' . $item->gambar) }}"
-                                        alt="{{ $item->judul }}">
-                                @else
-                                    <div class="berita-placeholder">
-                                        <i class="bi bi-newspaper"></i>
-                                    </div>
+                                    <img src="{{ asset('uploads/ekstrakurikuler/' . $item->gambar) }}"
+                                        alt="{{ $item->nama_ekskul }}">
                                 @endif
                             </div>
 
-                            <div class="berita-content">
-                                <h3><i class="bi bi-newspaper me-2"></i>{{ $item->judul }}</h3>
-                                <div class="berita-date">
-                                    {{ $item->tanggal }}
+                            <div class="ekstra-content">
+                                <h3>{{ $item->nama_ekskul }}</h3>
+                                <hr>
+                                <div class="container">
+                                    <p><i class="bi bi-person-fill"> </i><strong>Pembina :</strong>
+                                        {{ $item->pembina }}</p>
+                                    <p><i class="bi bi-clock-fill"> </i><strong>Jadwal :</strong>
+                                        {{ $item->jadwal_latihan }}</p>
+                                    <p>{{ $item->deskripsi }}</p>
                                 </div>
-                                <a href="">Lihat Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                                {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
                             </div>
                         </div>
                     </div>
@@ -342,7 +325,6 @@
             </div>
         </div>
     </section>
-
 
     {{-- pengumuman --}}
     <section class="section pengumuman" id="pengumuman">
@@ -355,7 +337,7 @@
                 </a>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 @foreach ($pengumumans as $pengumuman)
                     <div class="col-md-6 col-lg-4">
                         <div class="pengumuman-card h-100">
@@ -377,43 +359,98 @@
         </div>
     </section>
 
-
-    {{-- galeri --}}
-    <section class="section visi-misi" id="galeri">
+    {{-- berita --}}
+    <section class="section berita" id="berita">
         <div class="container">
             <div class="section-title">
-                <h2>Galeri</h2>
+                <h2>Berita</h2>
+                <p>Berita Update</p>
+                <a href="{{ route('berita.public') }}" class="btn btn-public mt-3">
+                    Lihat Semua
+                </a>
             </div>
 
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="visi-card h-100">
-                        <div class="visi-icon">
-                            <i class="bi bi-eye"></i>
-                        </div>
-                        <div class="visi-content">
-                            <span>VISI SEKOLAH</span>
-                            <h3>Visi</h3>
-                            <p>{{ $profil->visi_misi ?? 'Visi sekolah belum tersedia.' }}</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4 justify-content-center">
+                @foreach ($berita as $item)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="berita-card h-100">
+                            <div class="berita-image">
+                                @if ($item->gambar)
+                                    <img src="{{ asset('uploads/berita/' . $item->gambar) }}"
+                                        alt="{{ $item->judul }}">
+                                @else
+                                    <div class="berita-placeholder">
+                                        <i class="bi bi-newspaper"></i>
+                                    </div>
+                                @endif
+                            </div>
 
-                <div class="col-lg-6">
-                    <div class="visi-card h-100">
-                        <div class="visi-icon">
-                            <i class="bi bi-building"></i>
-                        </div>
-                        <div class="visi-content">
-                            <span>TENTANG SEKOLAH</span>
-                            <h3>Tentang Sekolah</h3>
-                            <p>{{ $profil->deskripsi ?? 'Informasi sekolah belum tersedia.' }}</p>
+                            <div class="berita-content">
+                                <h3><i class="bi bi-newspaper me-2"></i>{{ $item->judul }}</h3>
+                                <div class="berita-date">
+                                    {{ $item->tanggal }}
+                                </div>
+                                <a href="" style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
+                                        class="bi bi-arrow-right"></i></a>
+                                {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+
+    {{-- galeri --}}
+    <section class="section galeri" id="galeri">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri</h2>
+                <p>Publikasi & Dokumentasi</p>
+                <a href="{{ route('galeri.public') }}" class="btn btn-public mt-3">
+                    Lihat Semua
+                </a>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                @foreach ($galeris as $item)
+                    <div class="col-lg-4">
+                        <div class="galeri-card h-100">
+                            <div class="galeri-image rounded-top">
+                                @if ($item->kategori == 'Foto')
+                                    <img src="{{ asset('uploads/galeri/' . $item->file) }}"
+                                        style="object-fit: cover; border-radius: 6px;">
+                                @else
+                                    <video class="video-preview" controls>
+                                        <source src="{{ asset('uploads/galeri/' . $item->file) }} " type="video/mp4">
+                                    </video>
+                                @endif
+                                <style>
+                                    .video-preview {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        transition: 0.3s;
+                                    }
+                                </style>
+                            </div>
+
+                            <div class="galeri-content mt-1">
+                                <div class="container d-flex justify-content-between align-items-center">
+                                    <h3>{{ $item->judul }}</h3>
+                                    <p><strong>Kategori : </strong>{{ $item->kategori }}</p>
+                                </div>
+                                <hr class="my-2">
+                                <p class="mt-0 mb-0"><i class="bi bi-info-circle-fill me-1"> </i> <strong>Keterangan :
+                                    </strong>{{ $item->keterangan }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
 
 
     {{-- footerr --}}
