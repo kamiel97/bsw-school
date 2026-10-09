@@ -22,7 +22,7 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: #F4F6F5;
-            color: #051C12;
+            color: #1B4F75;
         }
 
         .detail-berita {
@@ -39,15 +39,6 @@
             box-shadow: 0 8px 30px rgba(5, 28, 18, 0.07);
         }
 
-        .btn-kembali {
-            display: inline-block;
-            color: #072F1F;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 25px;
-            transition: 0.25s ease;
-        }
-
         .btn-kembali:hover {
             color: #1971d6;
             transform: translateX(-4px);
@@ -61,7 +52,7 @@
         }
 
         .berita-meta {
-            color: #6c757d;
+            color: #1B4F75;
             font-size: 14px;
             margin-bottom: 28px;
         }
@@ -77,7 +68,7 @@
         .berita-isi {
             font-size: 16px;
             line-height: 1.9;
-            color: #343a40;
+            color: #1B4F75;
             overflow-wrap: anywhere;
         }
 
@@ -133,7 +124,7 @@
 
             <div class="berita-container">
 
-                <h1 class="berita-judul">
+                <h1 class="berita-judul" style="font-family: 'Plus Jakarta'; font-size: 42px;">
                     {{ $beritas->judul }}
                 </h1>
 
