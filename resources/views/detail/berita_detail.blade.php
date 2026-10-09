@@ -131,12 +131,7 @@
     <section class="detail-berita">
         <div class="container">
 
-            <article class="berita-container">
-
-                <a href="{{ route('public.berita.public') }}" class="btn-kembali">
-                    <i class="bi bi-arrow-left"></i>
-                    Kembali ke Semua Berita
-                </a>
+            <div class="berita-container">
 
                 <h1 class="berita-judul">
                     {{ $beritas->judul }}
@@ -164,7 +159,7 @@
                     {!! nl2br(e($beritas->isi)) !!}
                 </div>
 
-            </article>
+            </div>
 
         </div>
     </section>
