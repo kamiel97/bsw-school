@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,18 +27,12 @@ class GuruController extends Controller
 
     public function create()
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         return view('pages/guru/create_guru');
     }
 
     public function store(Request $request)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $request->validate([
             'nama_guru' => 'required|max:40',
@@ -70,10 +63,6 @@ class GuruController extends Controller
             return redirect()->route('admin.guru.index');
         }
 
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
-
         $guru = Guru::findOrFail($id);
 
         return view('pages/guru/edit_guru', compact('guru'));
@@ -81,9 +70,6 @@ class GuruController extends Controller
 
     public function update(Request $request, Guru $guru)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $request->validate([
             'nama_guru' => 'required|max:40',
@@ -144,9 +130,6 @@ class GuruController extends Controller
 
     public function destroy(Guru $guru)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $guru->delete();
 

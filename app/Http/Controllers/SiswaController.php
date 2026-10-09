@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -24,27 +23,16 @@ class SiswaController extends Controller
         return view('pages.siswa.data-siswa', compact('siswas', 'search'));
     }
 
-    // public function index()
-    // {
-    //     $siswas = Siswa::latest()->get();
-
-    //     return view('pages/siswa/data-siswa', compact('siswas'));
-    // }
 
     public function create()
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
+
 
         return view('pages/siswa/create_siswa');
     }
 
     public function store(Request $request)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $request->validate([
             'nisn' => 'required|digits:10',
@@ -73,9 +61,6 @@ class SiswaController extends Controller
             return redirect()->route('admin.siswa.index');
         }
 
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
           $siswa = Siswa::findOrFail($id);
 
@@ -84,9 +69,6 @@ class SiswaController extends Controller
 
     public function update(Request $request, Siswa $siswa)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $request->validate([
             'nisn' => 'required|digits:10',
@@ -109,9 +91,6 @@ class SiswaController extends Controller
 
     public function destroy(Siswa $siswa)
     {
-        if (Auth::user()->role === 'Operator') {
-            abort(403);
-        }
 
         $siswa->delete();
 

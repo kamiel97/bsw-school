@@ -30,12 +30,9 @@
                     </a>
                 @endif
             </form>
-
-            @if (Auth::user()->role === 'Admin')
                 <a href="{{ route('admin.guru.create') }}" class="btn-custom btn-custom-primary">
                     <i class="bi bi-plus-square"></i> Tambah Guru
                 </a>
-            @endif
 
         </div>
 
@@ -61,9 +58,8 @@
                             <th>NIP</th>
                             <th>Mata Pelajaran</th>
 
-                            @if (Auth::user()->role === 'Admin')
                                 <th>Aksi</th>
-                            @endif
+
 
                         </tr>
                     </thead>
@@ -98,7 +94,7 @@
                                     {{ $guru->mapel }}
                                 </td>
 
-                                @if (Auth::user()->role === 'Admin')
+
                                     <td>
 
                                         <a href="{{ route('admin.guru.edit', Crypt::encryptString($guru->id_guru)) }}"
@@ -120,7 +116,7 @@
                                         </form>
 
                                     </td>
-                                @endif
+                               
 
                             </tr>
 

@@ -30,11 +30,11 @@
                 @endif
             </form>
 
-            @if (Auth::user()->role === 'Admin')
+
                 <a href="{{ route('admin.siswa.create') }}" class="btn-custom btn-custom-primary">
                     <i class="bi bi-plus-square"></i> Tambah Siswa
                 </a>
-            @endif
+
 
         </div>
 
@@ -60,9 +60,9 @@
                     <th>Jenis Kelamin</th>
                     <th>Tahun Masuk</th>
 
-                    @if(Auth::user()->role === 'Admin')
+
                         <th>Aksi</th>
-                    @endif
+
 
                 </tr>
             </thead>
@@ -93,7 +93,7 @@
                             {{ $siswa->tahun_masuk }}
                         </td>
 
-                        @if(Auth::user()->role === 'Admin')
+
                             <td>
 
                                 <a href="{{ route('admin.siswa.edit',Crypt::encryptString($siswa->id_siswa)) }}"
@@ -119,7 +119,7 @@
                                 </form>
 
                             </td>
-                        @endif
+                        
 
                     </tr>
 
