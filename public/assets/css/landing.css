@@ -1134,4 +1134,34 @@ img {
     width: 100%;
     max-width: 450px;
 }
+.search-pengumuman input {
+    flex: 1;
+    min-width: 0;
+}
+@media (max-width: 991px) {
+    .search-pengumuman { max-width: 100%; }
+}
 
+@media (max-width: 576px) {
+    .search-pengumuman { flex-wrap: nowrap !important; width: 100%; gap: 6px !important; }
+    .search-pengumuman input { flex: 1; width: 100%; min-width: 0; font-size: 13px; }
+    .search-pengumuman button, .search-ekstra a { flex-shrink: 0; padding: 8px 10px; }
+}
+/* search galeri */
+.search-galeri {
+    width: 100%;
+    max-width: 450px;
+}
+.search-galeri input {
+    flex: 1;
+    min-width: 0;
+}
+@media (max-width: 991px) {
+    .search-galeri { max-width: 100%; }
+}
+
+@media (max-width: 576px) {
+    .search-galeri { flex-wrap: nowrap !important; width: 100%; gap: 6px !important; }
+    .search-galeri input { flex: 1; width: 100%; min-width: 0; font-size: 13px; }
+    .search-galeri button, .search-ekstra a { flex-shrink: 0; padding: 8px 10px; }
+}
