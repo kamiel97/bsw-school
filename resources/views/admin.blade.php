@@ -74,7 +74,7 @@
 
             <i class="bi bi-book-half"></i>
 
-            <span class="brand-title">BSW</span>
+            <span class="brand-title"  style="font-family: Plus Jakarta, serif">BSW</span>
 
         </a>
 

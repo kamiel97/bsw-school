@@ -29,7 +29,7 @@
 
         <!-- Nama -->
         <div class="login-title">
-            <h2>BSW </h2>
+            <h2  style="font-family: Plus Jakarta, serif">BSW </h2>
             <small class="text-colors-blue">Best Student Website</small>
         </div>
 
