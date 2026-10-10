@@ -32,7 +32,7 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 
-                <i class="bi bi-list text-white"></i>
+                <i class="bi bi-list"></i>
 
             </button>
 
@@ -42,7 +42,7 @@
 
                     <li class="nav-item">
                         <a href="{{ route('landing_page') }}#ekstra" class="btn btn-hero btn-sm rounded-pill px-3">
-                           <i class="bi bi-arrow-left me-1"></i> Kembali
+                            <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
                 </ul>
@@ -55,18 +55,20 @@
 
     {{-- ALL EKSTRA --}}
     <div class="container mt-5 p-5 ">
-       <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+        <div class="section-title d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
             <div class="text-start">
                 <h3 class="fw-bold mb-1" style="color: #1B4F75">EKSTRAKURIKULER</h3>
                 <p class="text-muted mb-2">Kembangkan Minat dan Bakatmu</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('public.ekstra.public') }}" method="GET" class="d-flex gap-2">
-                <input type="text" name="search" value="{{ $search }}" class="form-control"
-                    style="width: 400px;" placeholder="Cari Ekstrakurikuler">
+            <form action="{{ route('public.ekstra.public') }}" method="GET"
+                class="d-flex flex-wrap gap-2 search-ekstra">
 
-                <button type="submit" class="btn" style="background: #1B4F75; ">
-                   <i class="bi bi-search" style="color: white"></i>
+                <input type="text" name="search" value="{{ $search }}" class="form-control"
+                    placeholder="Cari Ekstrakurikuler">
+
+                <button type="submit" class="btn" style="background: #1B4F75;">
+                    <i class="bi bi-search text-white"></i>
                 </button>
 
                 @if ($search)
@@ -74,6 +76,7 @@
                         Reset
                     </a>
                 @endif
+
             </form>
         </div>
         {{-- card --}}
@@ -92,7 +95,8 @@
                             <h3>{{ $item->nama_ekskul }}</h3>
                             <hr>
                             <div class="container">
-                                <p><i class="bi bi-person-fill"> </i><strong>Pembina :</strong> {{ $item->pembina }}</p>
+                                <p><i class="bi bi-person-fill"> </i><strong>Pembina :</strong> {{ $item->pembina }}
+                                </p>
                                 <p><i class="bi bi-clock-fill"> </i><strong>Jadwal :</strong>
                                     {{ $item->jadwal_latihan }}</p>
                                 <p>{{ $item->deskripsi }}</p>

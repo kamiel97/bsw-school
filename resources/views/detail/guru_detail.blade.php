@@ -33,17 +33,15 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 
-                <i class="bi bi-list text-white"></i>
+                <i class="bi bi-list"></i>
 
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item">
-                         <li class="nav-item"><a class="nav-link" href="{{ route('landing_page') }}#guru">Beranda</a></li>
-                         <li class="nav-item"><a class="nav-link" href="{{ route('public.guru.public') }}">Semua Guru</a></li>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('landing_page') }}#guru">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('public.guru.public') }}">Semua Guru</a></li>
                 </ul>
 
             </div>
@@ -51,26 +49,32 @@
         </div>
 
     </nav>
-    <div class="container mt-5 d-flex gap-5">
-        <div class="col-lg-4">
-            <div class="guru-card h-100">
-                <img src="{{ asset('storage/' . $guru->foto) }}">
+    <div class="container guru-detail-wrapper mt-5">
+        <div class="row g-4 g-lg-5 align-items-start">
+            <div class="col-12 col-md-5 col-lg-4">
+                <div class="guru-card h-100">
+                    <img src="{{ asset('storage/' . $guru->foto) }}" alt="{{ $guru->nama_guru }}">
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 mt-5">
-            <div class="section-detail">
-                <hr>
-                 <p>Nama</p>
-                <h2 class="mt-0 mb-4" style="font-size: 70px">{{ $guru->nama_guru }}</h2>
-                <hr>
-                 <p>Mata Pelajaran</p>
-                <h2 class="mb-5 mt-3"><i class="bi bi-book-half me-3"></i>{{ $guru->mapel}}</h2>
-                <hr>
-                <p>NIP</p>
-                <h2>{{ $guru->nip}}</h2>
+            <div class="col-12 col-md-7 col-lg-6">
+                <div class="section-detail guru-detail-content">
+                    <hr>
+                    <p>Nama</p>
+                    <h2 class="guru-detail-nama mt-0 mb-4">{{ $guru->nama_guru }}</h2>
+                    <hr>
+                    <p>Mata Pelajaran</p>
+                    <h2 class="guru-detail-mapel mb-4 mb-lg-5 mt-3">
+                        <i class="bi bi-book-half me-2 me-lg-3"></i>{{ $guru->mapel }}
+                    </h2>
+                    <hr>
+                    <p>NIP</p>
+                    <h2 class="guru-detail-nip">{{ $guru->nip }}</h2>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

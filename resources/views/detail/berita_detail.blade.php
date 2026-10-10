@@ -100,13 +100,13 @@
                 data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <i class="bi bi-list text-white"></i>
+                <i class="bi bi-list"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing_page') }}">Beranda</a>
+                        <a class="nav-link" href="{{ route('landing_page') }}#berita">Beranda</a>
                     </li>
 
                     <li class="nav-item">

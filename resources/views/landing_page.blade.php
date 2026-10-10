@@ -278,7 +278,8 @@
 
                                 <p><i class="bi bi-book-half me-2" style="color: #1B4F75"></i>{{ $item->mapel }}</p>
 
-                                <a href="{{ route('detail.guru.detail', Crypt::encryptString($item->id_guru))}}" class="btn-custom btn-detail">
+                                <a href="{{ route('detail.guru.detail', Crypt::encryptString($item->id_guru)) }}"
+                                    class="btn-custom btn-detail">
                                     Lihat Selengkapnya
                                     <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -395,7 +396,8 @@
                                 <div class="berita-date">
                                     {{ $item->tanggal }}
                                 </div>
-                                <a href="{{ route('detail.berita.detail',['id' => \Illuminate\Support\Facades\Crypt::encryptString((string) $item->id_berita)])}}" style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
+                                <a href="{{ route('detail.berita.detail', ['id' => \Illuminate\Support\Facades\Crypt::encryptString((string) $item->id_berita)]) }}"
+                                    style="text-decoration: none; color: #4DA3FF">Lihat Selengkapnya <i
                                         class="bi bi-arrow-right"></i></a>
                                 {{-- <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 120) }}</p> --}}
                             </div>
@@ -459,13 +461,57 @@
 
 
     {{-- footerr --}}
-    <footer>
-        <div class="container text-center">
-            <p>
-                &copy; {{ date('Y') }}
-                {{ $profil->nama_sekolah ?? 'BSW - Best Student Website' }}.
-                All Rights Reserved.
-            </p>
+    <footer class="footer-bsw">
+        <div class="container">
+            <div class="row g-4 py-5">
+
+                {{-- Identitas Sekolah --}}
+                <div class="col-lg-5 col-md-6">
+                    <a href="{{ route('landing_page') }}" class="footer-brand text-decoration-none">
+                        <i class="bi bi-book-half"></i>
+                        {{ $profil->nama_sekolah ?? 'BSW - Best Student Website' }}
+                    </a>
+
+                    <p class="footer-desc mt-3">
+                        {{ $profil->deskripsi ?? 'Platform informasi sekolah untuk mengenal profil, berita, pengumuman, dan berbagai kegiatan sekolah.' }}
+                    </p>
+                </div>
+
+                {{-- Navigasi --}}
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Navigasi</h5>
+                    <ul class="footer-links">
+                        <li><a href="{{ route('landing_page') }}">Beranda</a></li>
+                        <li><a href="{{ route('landing_page') }}#profil">Profil Sekolah</a></li>
+                        <li><a href="{{ route('landing_page') }}#visi-misi">Visi & Misi</a></li>
+                        <li><a href="{{ route('landing_page') }}#berita">Berita Terbaru</a></li>
+                    </ul>
+                </div>
+
+                {{-- Informasi --}}
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Informasi Sekolah</h5>
+
+                    <p class="footer-info">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        {{ $profil->alamat ?? 'Alamat sekolah belum tersedia' }}
+                    </p>
+
+                    <p class="footer-info">
+                        <i class="bi bi-telephone-fill"></i>
+                        {{ $profil->kontak ?? 'Kontak belum tersedia' }}
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; {{ date('Y') }}
+                    {{ $profil->nama_sekolah ?? 'BSW - Best Student Website' }}.
+                    All Rights Reserved.
+                </p>
+            </div>
         </div>
     </footer>
 

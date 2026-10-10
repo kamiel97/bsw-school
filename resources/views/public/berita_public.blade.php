@@ -32,7 +32,7 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 
-                <i class="bi bi-list text-white"></i>
+                <i class="bi bi-list"></i>
 
             </button>
 
@@ -61,9 +61,9 @@
                 <p class="text-muted mb-2">Berita Update</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('public.berita.public') }}" method="GET" class="d-flex gap-2">
+            <form action="{{ route('public.berita.public') }}" method="GET" class="d-flex flex-wrap gap-2 search-pengumuman">
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
-                    style="width: 400px;" placeholder="Cari Berita">
+                 placeholder="Cari Berita">
 
                 <button type="submit" class="btn" style="background:#1B4F75">
                     <i class="bi bi-search" style="color: white"></i>

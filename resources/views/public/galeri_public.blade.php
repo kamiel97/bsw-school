@@ -32,7 +32,7 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 
-                <i class="bi bi-list text-white"></i>
+                <i class="bi bi-list"></i>
 
             </button>
 
@@ -41,8 +41,8 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
-                       <a href="{{ route('landing_page') }}#galeri" class="btn btn-hero btn-sm rounded-pill px-3">
-                           <i class="bi bi-arrow-left me-1"></i> Kembali
+                        <a href="{{ route('landing_page') }}#galeri" class="btn btn-hero btn-sm rounded-pill px-3">
+                            <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
                     </li>
                 </ul>
@@ -61,12 +61,14 @@
                 <p class="text-muted mb-2">Pubilikasi & Dokumentasi</p>
                 <div style="width: 300px; height: 4px; background: #1B4F75; border-radius: 4px;"></div>
             </div>
-            <form action="{{ route('public.galeri.public') }}" method="GET" class="d-flex gap-2">
+
+            <form action="{{ route('public.galeri.public') }}" method="GET" class="d-flex gap-2 search-galeri">
+
                 <input type="text" name="search" value="{{ $search }}" class="form-control"
-                    style="width: 400px;" placeholder="Cari Foto & Video">
+                    placeholder="Cari Foto & Video">
 
                 <button type="submit" class="btn" style="background: #1B4F75;">
-                     <i class="bi bi-search" style="color: white"></i>
+                    <i class="bi bi-search text-white"></i>
                 </button>
 
                 @if ($search)
@@ -74,7 +76,9 @@
                         Reset
                     </a>
                 @endif
+
             </form>
+
         </div>
         <div class="row g-4">
             @foreach ($galeris as $item)

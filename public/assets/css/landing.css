@@ -1,9 +1,4 @@
 :root {
-    /* --landing-primary: #2563eb;
-    --landing-primary-dark: #1d4ed8;
-    --landing-secondary: #0f172a; */
-
-
     --landing-text: #1e293b;
     --landing-muted: #64748b;
     --landing-bg: #f8fafc;
@@ -23,7 +18,6 @@
     --text-main: #102A43;
     --text-muted-green: #627D98;
     --text-sidebar-muted: #B8C7D3;
-
 }
 
 * {
@@ -56,7 +50,7 @@ body {
     color: var(--landing-secondary);
     font-size: 21px;
     font-weight: 700;
-    font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -82,11 +76,10 @@ body {
     transition: 0.3s;
 }
 
-.nav-link.active{
+.nav-link.active {
     color: var(--bg) !important;
     font-weight: bold;
 }
-
 
 .navbar-nav .nav-link:hover {
     color: var(--bg) !important;
@@ -122,7 +115,7 @@ body {
 }
 
 .hero-title {
-    font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     color: var(--landing-secondary);
     font-size: 58px;
     font-weight: 800;
@@ -175,13 +168,14 @@ body {
 .section {
     padding: 90px 0;
 }
-.section-detail{
+
+.section-detail {
     margin-bottom: 50px;
 }
 
 .section-detail h2 {
     color: var(--landing-secondary);
-     font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -199,7 +193,7 @@ body {
 
 .section-title h2 {
     color: var(--landing-secondary);
-     font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -279,7 +273,6 @@ body {
 .stat-card:hover .stat-bottom a {
     color: var(--landing-bg);
 }
-
 /* end hover */
 
 .stat-top {
@@ -311,14 +304,9 @@ body {
     justify-content: center;
     border-radius: 14px;
     background: var(--landing-primary);
-    /* background: var(--landing-soft); */
-    /* color: var(--landing-primary); */
     color: var(--landing-white);
     font-size: 21px;
 }
-
-
-
 
 .stat-bottom {
     padding-top: 15px;
@@ -416,7 +404,7 @@ body {
 }
 
 .profile-content h3 {
-     font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     color: var(--landing-secondary);
     font-size: 40px;
     line-height: 1.2;
@@ -513,19 +501,20 @@ body {
 }
 
 .guru-content p {
-    text-align: center ;
+    text-align: center;
     color: var(--landing-muted);
     font-size: 14px;
     line-height: 1.7;
     margin: 0;
     margin-bottom: 5px;
-
 }
-.guru-content button{
+
+.guru-content button {
     align-items: center;
     justify-content: center;
 }
-.btn-detail{
+
+.btn-detail {
     display: inline-block;
     width: 100%;
     background: var(--landing-primary);
@@ -539,12 +528,12 @@ body {
     font-weight: 600;
     transition: 0.3s;
 }
-.btn-detail:hover{
+
+.btn-detail:hover {
     background: var(--bg);
 }
 
 /* ekstra */
-
 .ekstra-card {
     background: var(--landing-white);
     border-radius: 20px;
@@ -593,14 +582,13 @@ body {
 }
 
 .ekstra-content p {
-    /* text-align: center; */
     color: var(--landing-muted);
     font-size: 14px;
     line-height: 1.7;
     margin: 0;
 }
 
-.ekstrakulikuler{
+.ekstrakulikuler {
     background: var(--landing-white);
 }
 
@@ -656,16 +644,13 @@ body {
 }
 
 .galeri-content p {
-
     color: var(--landing-muted);
     font-size: 12px;
     line-height: 1.7;
     margin-bottom: 5px;
 }
 
-
 /* berita */
-
 .berita {
     background: var(--landing-white);
 }
@@ -743,8 +728,8 @@ body {
     margin-bottom: 12px;
 }
 
-.berita-content  a{
-   color: #0D2B45;
+.berita-content a {
+    color: #0D2B45;
 }
 
 .berita-content p {
@@ -753,9 +738,6 @@ body {
     line-height: 1.7;
     margin: 0;
 }
-
-
-
 
 /* pengumuman */
 .pengumuman {
@@ -796,7 +778,8 @@ body {
 .pengumuman-card:hover .pengumuman-icon {
     background: var(--bg);
 }
-.pengumuman-card:hover .pengumuman-icon i{
+
+.pengumuman-card:hover .pengumuman-icon i {
     color: white;
 }
 
@@ -835,7 +818,6 @@ body {
 }
 
 /* visi misi */
-
 .visi-card {
     background: var(--landing-white);
     border: 1px solid var(--landing-border);
@@ -847,8 +829,8 @@ body {
 .visi-card:hover {
     transform: translateY(-6px);
     border-color: var(--landing-primary);
-
 }
+
 .visi-card:hover i {
     color: white;
 }
@@ -867,7 +849,7 @@ body {
 }
 
 .visi-content h3 {
-    font-family:'plus Jakarta', serif ;
+    font-family: 'plus Jakarta', serif;
     color: var(--landing-secondary);
     font-size: 26px;
     font-weight: 800;
@@ -881,105 +863,275 @@ body {
     margin: 0;
 }
 
-/* footeer */
-footer {
-    background: var(--landing-secondary);
-    color: white;
-    padding: 30px 0;
-}
-
-footer p {
+/* footer */
+.footer p {
     margin: 0;
     color: #cbd5e1;
     font-size: 14px;
 }
 
-/* responsip hp */
+.footer-bsw {
+    background: var(--landing-primary-dark);
+    color: #F4F6F5;
+    padding-top: 10px;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--bg);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.footer-brand i {
+    font-size: 27px;
+}
+
+.footer-desc {
+    color: #b9c8bf;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 400px;
+}
+
+.footer-title {
+    color: var(--bg);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #c5d0ca;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--bg);
+    padding-left: 5px;
+}
+
+.footer-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #c5d0ca;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.footer-info i {
+    color: var(--bg);
+    font-size: 17px;
+    margin-top: 3px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--landing-primary);
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #aebdb4;
+    font-size: 13px;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Hp bsr */
+@media (max-width: 991.98px) {
+    .navbar-custom { padding: 12px 0; }
+    .navbar-brand { font-size: 18px; max-width: calc(100% - 65px); }
+    .navbar-nav .nav-link { margin-left: 0; padding: 12px 0; }
+    .hero { min-height: auto; padding: 75px 0; }
+    .hero-title { font-size: 44px; }
+    .hero-logo { max-width: 230px; max-height: 230px; }
+    .hero-logo-icon { font-size: 140px; }
+    .section { padding: 70px 0; }
+    .section-title h2, .section-detail h2 { font-size: 34px; }
+    .profile-wrapper { grid-template-columns: minmax(0, 1fr); gap: 35px; }
+    .profile-image-box { height: 380px; }
+    .profile-content { padding: 0; }
+    .profile-content h3 { font-size: 34px; }
+    .guru-image { height: 280px; }
+    .footer-brand { font-size: 19px; }
+}
+
+/* Hp sdng */
+@media (max-width: 767.98px) {
+    .navbar-custom { padding: 10px 0; }
+    .navbar-brand { font-size: 16px; gap: 6px; }
+    .navbar-toggler { font-size: 22px; padding: 4px; }
+    .hero { padding: 55px 0; text-align: center; }
+    .hero-eyebrow { font-size: 12px; margin-bottom: 12px; }
+    .hero-title { font-size: clamp(29px, 7vw, 38px); line-height: 1.25; margin-bottom: 15px; overflow-wrap: anywhere; }
+    .hero-desc { font-size: 14px; line-height: 1.8; margin-left: auto; margin-right: auto; }
+    .hero-logo { max-width: 190px; max-height: 190px; }
+    .hero-logo-icon { font-size: 110px; }
+    .btn-hero { padding: 11px 18px; font-size: 13px; }
+    .section { padding: 55px 0; }
+    .section-detail { margin-bottom: 30px; }
+    .section-title { margin-bottom: 30px; }
+    .section-title h2, .section-detail h2 { font-size: 29px; line-height: 1.3; }
+    .section-title p, .section-detail p { font-size: 14px; line-height: 1.7; }
+    .stat-card { padding: 17px; min-height: 165px; border-radius: 15px; }
+    .stat-top span { font-size: 10px; letter-spacing: 0.5px; }
+    .stat-top h2 { font-size: 30px; }
+    .stat-icon { width: 40px; height: 40px; font-size: 18px; border-radius: 12px; flex-shrink: 0; }
+    .stat-bottom h4 { font-size: 14px; }
+    .stat-bottom small, .stat-bottom a { font-size: 11px; }
+    .profile-wrapper { grid-template-columns: minmax(0, 1fr); gap: 25px; }
+    .profile-image-box { height: auto; aspect-ratio: 4 / 3; border-radius: 18px; }
+    .profile-placeholder i { font-size: 75px; }
+    .profile-content h3 { font-size: 29px; margin-bottom: 15px; }
+    .profile-label { font-size: 11px; letter-spacing: 1.5px; }
+    .profile-description { font-size: 14px; line-height: 1.8; margin-bottom: 25px; }
+    .profile-details { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .profile-detail { gap: 10px; }
+    .profile-detail strong { font-size: 14px; overflow-wrap: anywhere; }
+    .guru-image { height: auto; aspect-ratio: 4 / 3; }
+    .guru-content { padding: 14px; }
+    .guru-content h3 { font-size: 17px; }
+    .guru-content p { font-size: 13px; }
+    .ekstra-image { height: auto; aspect-ratio: 16 / 10; }
+    .ekstra-content { padding: 14px; }
+    .ekstra-content h3 { font-size: 17px; }
+    .ekstra-content p { font-size: 13px; }
+    .galeri { padding: 55px 0; }
+    .galeri-card { padding: 12px; border-radius: 15px; }
+    .galeri-image { height: auto; aspect-ratio: 4 / 3; }
+    .galeri-content { padding: 5px; }
+    .galeri-content h3 { font-size: 16px; overflow-wrap: anywhere; }
+    .berita-image { height: auto; aspect-ratio: 16 / 10; }
+    .berita-content { padding: 17px; }
+    .berita-content h3 { font-size: 17px; }
+    .berita-content p { font-size: 13px; }
+    .pengumuman-card { padding: 20px; border-radius: 16px; }
+    .pengumuman-icon { width: 45px; height: 45px; margin-bottom: 16px; }
+    .pengumuman-content h3 { font-size: 17px; }
+    .pengumuman-content p { font-size: 13px; }
+    .visi-card { padding: 23px; border-radius: 17px; }
+    .visi-content h3 { font-size: 22px; }
+    .visi-content p { font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
+    .btn-public { padding: 9px 17px; font-size: 12px; }
+    .btn-detail { padding: 11px 14px; font-size: 13px; }
+    .footer-bsw .row { padding-top: 35px !important; padding-bottom: 30px !important; }
+    .footer-brand { font-size: 17px; align-items: flex-start; overflow-wrap: anywhere; }
+    .footer-brand i { font-size: 23px; flex-shrink: 0; }
+    .footer-title { font-size: 16px; margin-bottom: 14px; }
+    .footer-desc, .footer-links a, .footer-info { font-size: 13px; }
+    .footer-bottom { padding: 18px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-bottom p { font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+}
+/* hp lite */
+@media (max-width: 400px) {
+    .navbar-brand { font-size: 14px; }
+    .hero-title { font-size: 28px; }
+    .section-title h2, .section-detail h2 { font-size: 26px; }
+    .stat-card { padding: 12px; min-height: 150px; }
+    .stat-top h2 { font-size: 25px; }
+    .stat-icon { width: 34px; height: 34px; font-size: 16px; }
+    .profile-content h3 { font-size: 26px; }
+    .visi-card { padding: 18px; }
+    .footer-brand { font-size: 15px; }
+}
+
+
+/* responsive guru */
+.guru-page {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    padding: 30px 15px;
+}
+
+/* Pencarian */
+.search-guru {
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-guru input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Tablet */
 @media (max-width: 991px) {
-    .navbar-nav {
-        padding-top: 15px;
-    }
+    .guru-page { margin-top: 90px; padding: 25px 15px; }
+    .section-title { align-items: flex-start !important; }
+    .search-guru { max-width: 100%; }
+}
 
-    .navbar-nav .nav-link {
-        margin-left: 0;
-        padding: 10px 0;
-    }
+/* HP */
+@media (max-width: 576px) {
+    .section-title { flex-direction: column; align-items: stretch !important; gap: 20px !important; margin-bottom: 30px !important; }
+    .section-title > div { width: 100%; }
+    .section-title > div > div { max-width: 100%; }
+    .section-title h3 { font-size: 24px; }
+    .search-guru { display: flex; width: 100%; }
+    .search-guru input { flex: 1; width: 100%; font-size: 13px; }
+    .search-guru button, .search-guru a { flex-shrink: 0; }
+    .guru-content h3 { font-size: 18px; }
+    .guru-content p { font-size: 14px; }
+}
 
-    .hero {
-        text-align: center;
-        padding: 80px 0;
-    }
+/* search ekstra */
+.search-ekstra {
+    width: 100%;
+    max-width: 450px;
+}
 
-    .hero-title {
-        font-size: 38px;
-    }
+.search-ekstra input {
+    flex: 1;
+    min-width: 0;
+}
 
-    .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-logo {
-        margin-top: 45px;
-        max-width: 210px;
-        max-height: 210px;
-    }
-
-    .profile-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .profile-image-box {
-        height: 420px;
-    }
-
-    .profile-content {
-        padding: 0;
-    }
+@media (max-width: 991px) {
+    .search-ekstra { max-width: 100%; }
 }
 
 @media (max-width: 576px) {
-    .hero {
-        min-height: auto;
-        padding: 65px 0;
-    }
-
-    .hero-title {
-        font-size: 32px;
-    }
-
-    .hero-desc {
-        font-size: 14px;
-    }
-
-    .section {
-        padding: 65px 0;
-    }
-
-    .section-title h2 {
-        font-size: 27px;
-    }
-
-    .profile {
-        padding: 70px 0;
-    }
-
-    .profile-image-box {
-        height: 330px;
-        border-radius: 20px;
-    }
-
-    .profile-content h3 {
-        font-size: 30px;
-    }
-
-    .profile-details {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .visi-card {
-        padding: 25px;
-    }
+    .search-ekstra { flex-wrap: nowrap !important; width: 100%; gap: 6px !important; }
+    .search-ekstra input { flex: 1; width: 100%; min-width: 0; font-size: 13px; }
+    .search-ekstra button, .search-ekstra a { flex-shrink: 0; padding: 8px 10px; }
 }
+
+/* search pengumuman */
+.search-pengumuman {
+    width: 100%;
+    max-width: 450px;
+}
+
